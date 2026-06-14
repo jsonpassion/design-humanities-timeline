@@ -101,3 +101,90 @@
 - french_revolution.jpg 와 liberty_leading.jpg 는 같은 작품(드라크루아)이므로 하나만 준비해도 됨
 - 이미지 없이도 플레이스홀더로 동작함
 - 우선순위: 배경 7개 > 주요 작품 (아테네 학당, 모나리자, 검은 사각형, 게르니카, 별이 빛나는 밤) > 나머지
+
+---
+
+## 다운로드 링크
+
+모든 이미지는 퍼블릭 도메인(PD-Art, PD-old) 확인 완료. 별도 표기된 것은 CC 라이선스.
+직접 다운로드 URL은 Wikimedia Commons의 원본 파일 링크(upload.wikimedia.org)로 제공.
+
+### 배경 이미지 (7개)
+
+| 파일명 | Commons 페이지 | 직접 다운로드 URL |
+|--------|---------------|------------------|
+| `bg_ancient.jpg` | [File:Raphael School of Athens.jpg](https://commons.wikimedia.org/wiki/File:Raphael_School_of_Athens.jpg) | `https://upload.wikimedia.org/wikipedia/commons/4/49/%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg` |
+| `bg_medieval.jpg` | [File:Sainte Chapelle Interior Stained Glass.jpg](https://commons.wikimedia.org/wiki/File:Sainte_Chapelle_Interior_Stained_Glass.jpg) | `https://upload.wikimedia.org/wikipedia/commons/f/f5/Sainte_Chapelle_Interior_Stained_Glass.jpg` (CC BY-SA 4.0) |
+| `bg_renaissance.jpg` | [File:Creation of Adam Michelangelo.jpg](https://commons.wikimedia.org/wiki/File:Creation_of_Adam_Michelangelo.jpg) | `https://upload.wikimedia.org/wikipedia/commons/5/5b/Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg` |
+| `bg_romanticism.jpg` | [File:Caspar David Friedrich - Wanderer above the sea of fog.jpg](https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg) | `https://upload.wikimedia.org/wikipedia/commons/b/b9/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg` |
+| `bg_industrial.jpg` | [File:Rain Steam and Speed the Great Western Railway.jpg](https://commons.wikimedia.org/wiki/File:Rain_Steam_and_Speed_the_Great_Western_Railway.jpg) | `https://upload.wikimedia.org/wikipedia/commons/7/7e/Rain_Steam_and_Speed_the_Great_Western_Railway.jpg` |
+| `bg_nietzsche.jpg` | [File:The Scream by Edvard Munch, 1893 - Nasjonalgalleriet.png](https://commons.wikimedia.org/wiki/File:The_Scream_by_Edvard_Munch,_1893_-_Nasjonalgalleriet.png) | `https://upload.wikimedia.org/wikipedia/commons/c/c5/Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg` |
+| `bg_modern.jpg` | [File:Bauhaus.JPG](https://commons.wikimedia.org/wiki/File:Bauhaus.JPG) | `https://upload.wikimedia.org/wikipedia/commons/6/6e/Bauhaus.JPG` |
+
+### 인물 이미지 (29개)
+
+| 파일명 | Commons 페이지 | 직접 다운로드 URL |
+|--------|---------------|------------------|
+| `thales.jpg` | [File:Thales.jpg](https://commons.wikimedia.org/wiki/File:Thales.jpg) | `https://upload.wikimedia.org/wikipedia/commons/c/c6/Illustrerad_Verldshistoria_band_I_Ill_107.jpg` |
+| `pythagoras.jpg` | [File:Kapitolinischer Pythagoras adjusted.jpg](https://commons.wikimedia.org/wiki/File:Kapitolinischer_Pythagoras_adjusted.jpg) | `https://upload.wikimedia.org/wikipedia/commons/1/1a/Kapitolinischer_Pythagoras_adjusted.jpg` |
+| `socrates.jpg` | [File:Socrates Louvre.jpg](https://commons.wikimedia.org/wiki/File:Socrates_Louvre.jpg) | `https://upload.wikimedia.org/wikipedia/commons/b/bc/Socrate_du_Louvre.jpg` |
+| `plato.jpg` | [File:Sanzio 01 Plato Aristotle.jpg](https://commons.wikimedia.org/wiki/File:Sanzio_01_Plato_Aristotle.jpg) | `https://upload.wikimedia.org/wikipedia/commons/9/98/Sanzio_01_Plato_Aristotle.jpg` |
+| `aristotle.jpg` | [File:Aristotle Altemps Inv8575.jpg](https://commons.wikimedia.org/wiki/File:Aristotle_Altemps_Inv8575.jpg) | `https://upload.wikimedia.org/wikipedia/commons/a/ae/Aristotle_Altemps_Inv8575.jpg` |
+| `kandinsky.jpg` | [File:Wassily Kandinsky 1923 by Hugo Erfurth.jpg](https://commons.wikimedia.org/wiki/File:Wassily_Kandinsky_1923_by_Hugo_Erfurth.jpg) | `https://upload.wikimedia.org/wikipedia/commons/8/8a/Wassily_Kandinsky_1923_by_Hugo_Erfurth.jpg` |
+| `cicero.jpg` | [File:Cicero - Musei Capitolini.JPG](https://commons.wikimedia.org/wiki/File:Cicero_-_Musei_Capitolini.JPG) | `https://upload.wikimedia.org/wikipedia/commons/9/9a/Cicero_-_Musei_Capitolini.JPG` |
+| `occam.jpg` | [File:William of Ockham.png](https://commons.wikimedia.org/wiki/File:William_of_Ockham.png) | `https://upload.wikimedia.org/wikipedia/commons/7/70/William_of_Ockham.png` |
+| `gropius.jpg` | [File:Walter Gropius by Hugo Erfurth, 1928.jpg](https://commons.wikimedia.org/wiki/Category:Walter_Gropius) | `https://upload.wikimedia.org/wikipedia/commons/5/53/Walter_Gropius_photo_circa_1919.jpg` |
+| `mies.jpg` | [File:Hugo Erfurth - Portrait Ludwig Mies van der Rohe, 1934.jpg](https://commons.wikimedia.org/wiki/File:Hugo_Erfurth_-_Portrait_Ludwig_Mies_van_der_Rohe,_1934.jpg) | `https://upload.wikimedia.org/wikipedia/commons/9/95/Hugo_Erfurth_-_Portrait_Ludwig_Mies_van_der_Rohe%2C_1934.jpg` |
+| `gutenberg.jpg` | [Category:Johannes Gutenberg](https://commons.wikimedia.org/wiki/Category:Johannes_Gutenberg) | `https://upload.wikimedia.org/wikipedia/commons/3/33/Gutenberg.jpg` |
+| `davinci.jpg` | [File:Leonardo self.jpg](https://commons.wikimedia.org/wiki/File:Leonardo_self.jpg) | `https://upload.wikimedia.org/wikipedia/commons/b/ba/Leonardo_self.jpg` |
+| `michelangelo.jpg` | [File:Jacopo del Conte - Portrait of Michelangelo - WGA5207.jpg](https://commons.wikimedia.org/wiki/File:Jacopo_del_Conte_-_Portrait_of_Michelangelo_-_WGA5207.jpg) | `https://upload.wikimedia.org/wikipedia/commons/5/5e/Miguel_%C3%81ngel%2C_por_Daniele_da_Volterra_%28detalle%29.jpg` |
+| `descartes.jpg` | [File:Frans Hals - Portret van Rene Descartes.jpg](https://commons.wikimedia.org/wiki/File:Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg) | `https://upload.wikimedia.org/wikipedia/commons/7/73/Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg` |
+| `newton.jpg` | [File:GodfreyKneller-IsaacNewton-1689.jpg](https://commons.wikimedia.org/wiki/File:GodfreyKneller-IsaacNewton-1689.jpg) | `https://upload.wikimedia.org/wikipedia/commons/3/39/GodfreyKneller-IsaacNewton-1689.jpg` |
+| `blake.jpg` | [File:William Blake by Thomas Phillips.jpg](https://commons.wikimedia.org/wiki/File:William_Blake_by_Thomas_Phillips.jpg) | `https://upload.wikimedia.org/wikipedia/commons/0/00/William_Blake_by_Thomas_Phillips.jpg` |
+| `delacroix.jpg` | [File:Eugene delacroix.jpg](https://commons.wikimedia.org/wiki/File:Eugene_delacroix.jpg) | `https://upload.wikimedia.org/wikipedia/commons/1/13/Eugene_delacroix.jpg` |
+| `rousseau.jpg` | [File:Jean-Jacques Rousseau (painted portrait).jpg](https://commons.wikimedia.org/wiki/File:Jean-Jacques_Rousseau_(painted_portrait).jpg) | `https://upload.wikimedia.org/wikipedia/commons/b/b7/Jean-Jacques_Rousseau_%28painted_portrait%29.jpg` |
+| `turner.jpg` | [File:Turner selfportrait.jpg](https://commons.wikimedia.org/wiki/File:Turner_selfportrait.jpg) | `https://upload.wikimedia.org/wikipedia/commons/7/76/Turner_selfportrait.jpg` |
+| `schopenhauer.jpg` | [File:Arthur Schopenhauer by J Schafer, 1859b.jpg](https://commons.wikimedia.org/wiki/File:Arthur_Schopenhauer_by_J_Sch%C3%A4fer,_1859b.jpg) | `https://upload.wikimedia.org/wikipedia/commons/b/bc/Arthur_Schopenhauer_by_J_Sch%C3%A4fer%2C_1859b.jpg` |
+| `ruskin.jpg` | [Category:Portraits of John Ruskin](https://commons.wikimedia.org/wiki/Category:Portraits_of_John_Ruskin) | `https://upload.wikimedia.org/wikipedia/commons/e/ec/John_Ruskin_-_Project_Gutenberg_eText_13103.jpg` |
+| `nietzsche.jpg` | [File:Nietzsche1882.jpg](https://commons.wikimedia.org/wiki/File:Nietzsche1882.jpg) | `https://upload.wikimedia.org/wikipedia/commons/1/1b/Nietzsche1882.jpg` |
+| `wagner.jpg` | [File:Hanfstaengl, Franz - Richard Wagner.jpg](https://commons.wikimedia.org/wiki/File:Hanfstaengl,_Franz_-_Richard_Wagner_(1813-1883)_(Zeno_Fotografie).jpg) | `https://upload.wikimedia.org/wikipedia/commons/9/9d/RichardWagner.jpg` |
+| `freud.jpg` | [File:Sigmund Freud LIFE.jpg](https://commons.wikimedia.org/wiki/File:Sigmund_Freud_LIFE.jpg) | `https://upload.wikimedia.org/wikipedia/commons/3/36/Sigmund_Freud%2C_by_Max_Halberstadt_%28cropped%29.jpg` |
+| `jung.jpg` | [Category:Portrait photographs of Carl Gustav Jung](https://commons.wikimedia.org/wiki/Category:Portrait_photographs_of_Carl_Gustav_Jung) | `https://upload.wikimedia.org/wikipedia/commons/0/00/CGJung.jpg` |
+| `mucha.jpg` | [Category:Photographs by Alfons Mucha](https://commons.wikimedia.org/wiki/Category:Photographs_by_Alfons_Mucha) | `https://upload.wikimedia.org/wikipedia/commons/e/e1/Alfons_Mucha_LOC_3c05828u.jpg` |
+| `picasso.jpg` | [File:Pablo Picasso, summer 1912.jpg](https://commons.wikimedia.org/wiki/File:Pablo_Picasso,_summer_1912.jpg) | `https://upload.wikimedia.org/wikipedia/commons/9/98/Pablo_picridge%2C_summer_1912.jpg` |
+| `mondrian.jpg` | [File:Piet Mondriaan.jpg](https://commons.wikimedia.org/wiki/File:Piet_Mondriaan.jpg) | `https://upload.wikimedia.org/wikipedia/commons/f/f3/Piet_Mondriaan.jpg` |
+| `malevich.jpg` | [File:Kazimir Malevich, 1933, Self-portrait.png](https://commons.wikimedia.org/wiki/File:Kazimir_Malevich,_1933,_Self-portrait.png) | `https://upload.wikimedia.org/wikipedia/commons/e/e6/Kazimir_Malevich%2C_1933%2C_Self-portrait.png` |
+
+### 작품 이미지 (주요 20개)
+
+| 파일명 | Commons 페이지 | 직접 다운로드 URL | 비고 |
+|--------|---------------|------------------|------|
+| `death_of_socrates.jpg` | [File:David - The Death of Socrates.jpg](https://commons.wikimedia.org/wiki/File:David_-_The_Death_of_Socrates.jpg) | `https://upload.wikimedia.org/wikipedia/commons/8/8c/David_-_The_Death_of_Socrates.jpg` | PD |
+| `black_square.jpg` | [File:Malevich.black-square.jpg](https://commons.wikimedia.org/wiki/File:Malevich.black-square.jpg) | `https://upload.wikimedia.org/wikipedia/commons/5/57/Malevich.black-square.jpg` | PD |
+| `hagia_sophia.jpg` | [File:Interior of Hagia sophia.JPG](https://commons.wikimedia.org/wiki/File:Interior_of_Hagia_sophia.JPG) | `https://upload.wikimedia.org/wikipedia/commons/2/22/Interior_of_Hagia_sophia.JPG` | CC BY-SA |
+| `gothic.jpg` | [File:Vitrail Chartres-001 a 002.jpg](https://commons.wikimedia.org/wiki/File:Vitrail_Chartres-001_%C3%A0_002.jpg) | `https://upload.wikimedia.org/wikipedia/commons/7/72/Vitrail_Chartres-001_%C3%A0_002.jpg` | PD |
+| `birth_of_venus.jpg` | [File:Botticelli Venus.jpg](https://commons.wikimedia.org/wiki/File:Botticelli_Venus.jpg) | `https://upload.wikimedia.org/wikipedia/commons/0/0b/Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg` | PD |
+| `mona_lisa.jpg` | [File:Mona Lisa, by Leonardo da Vinci, from C2RMF retouched.jpg](https://commons.wikimedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg) | `https://upload.wikimedia.org/wikipedia/commons/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg` | PD |
+| `school_of_athens.jpg` | [File:"The School of Athens" by Raffaello Sanzio da Urbino.jpg](https://commons.wikimedia.org/wiki/File:%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg) | `https://upload.wikimedia.org/wikipedia/commons/4/49/%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg` | PD |
+| `blake_newton.jpg` | [File:Newton-WilliamBlake.jpg](https://commons.wikimedia.org/wiki/File:Newton-WilliamBlake.jpg) | `https://upload.wikimedia.org/wikipedia/commons/0/0e/Newton-WilliamBlake.jpg` | PD |
+| `raft_of_medusa.jpg` | [File:Theodore Gericault - The Raft of the Medusa - WGA08630.jpg](https://commons.wikimedia.org/wiki/File:Th%C3%A9odore_G%C3%A9ricault_-_The_Raft_of_the_Medusa_-_WGA08630.jpg) | `https://upload.wikimedia.org/wikipedia/commons/1/15/JEAN_LOUIS_TH%C3%89ODORE_G%C3%89RICAULT_-_La_Balsa_de_la_Medusa_%28Museo_del_Louvre%2C_1818-19%29.jpg` | PD |
+| `liberty_leading.jpg` | [File:Eugene Delacroix - Le 28 Juillet. La Liberte guidant le peuple.jpg](https://commons.wikimedia.org/wiki/File:Eug%C3%A8ne_Delacroix_-_Le_28_Juillet._La_Libert%C3%A9_guidant_le_peuple.jpg) | `https://upload.wikimedia.org/wikipedia/commons/5/5d/Eug%C3%A8ne_Delacroix_-_Le_28_Juillet._La_Libert%C3%A9_guidant_le_peuple.jpg` | PD |
+| `temeraire.jpg` | [File:Turner, J. M. W. - The Fighting Temeraire.jpg](https://commons.wikimedia.org/wiki/File:Turner,_J._M._W._-_The_Fighting_T%C3%A9m%C3%A9raire_tugged_to_her_last_Berth_to_be_broken.jpg) | `https://upload.wikimedia.org/wikipedia/commons/3/30/The_Fighting_Temeraire%2C_JMW_Turner%2C_National_Gallery.jpg` | PD |
+| `crystal_palace.jpg` | [File:Crystal Palace from the northeast...1854.jpg](https://commons.wikimedia.org/wiki/File:Crystal_Palace_from_the_northeast_from_Dickinson%27s_Comprehensive_Pictures_of_the_Great_Exhibition_of_1851._1854.jpg) | `https://upload.wikimedia.org/wikipedia/commons/a/a4/Crystal_Palace_from_the_northeast_from_Dickinson%27s_Comprehensive_Pictures_of_the_Great_Exhibition_of_1851._1854.jpg` | PD |
+| `starry_night.jpg` | [File:Van Gogh - Starry Night - Google Art Project.jpg](https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg) | `https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg` | PD |
+| `mucha_poster.jpg` | [File:Alfons Mucha - 1894 - Gismonda.jpg](https://commons.wikimedia.org/wiki/File:Alfons_Mucha_-_1894_-_Gismonda.jpg) | `https://upload.wikimedia.org/wikipedia/commons/5/53/Alfons_Mucha_-_1894_-_Gismonda.jpg` | PD |
+| `matisse.jpg` | [File:Matissedance.jpg](https://commons.wikimedia.org/wiki/File:Matissedance.jpg) | `https://upload.wikimedia.org/wikipedia/en/a/a7/Matissedance.jpg` | PD |
+| `picasso_cubism.jpg` | [File:Les Demoiselles d'Avignon (7925004644).jpg](https://commons.wikimedia.org/wiki/File:Les_Demoiselles_d%27Avignon_(7925004644).jpg) | 미확인 - 피카소 작품은 저작권 주의 (사망 1973). 사진 촬영본은 CC 라이선스 가능 | 저작권 주의 |
+| `futurism.jpg` | [File:The City Rises by Umberto Boccioni 1910.jpg](https://commons.wikimedia.org/wiki/File:The_City_Rises_by_Umberto_Boccioni_1910.jpg) | `https://upload.wikimedia.org/wikipedia/commons/e/e1/The_City_Rises_by_Umberto_Boccioni_1910.jpg` | PD |
+| `mondrian_composition.jpg` | [File:Piet Mondriaan, 1930 - Mondrian Composition II in Red, Blue, and Yellow.jpg](https://commons.wikimedia.org/wiki/File:Piet_Mondriaan,_1930_-_Mondrian_Composition_II_in_Red,_Blue,_and_Yellow.jpg) | `https://upload.wikimedia.org/wikipedia/commons/a/a4/Piet_Mondriaan%2C_1930_-_Mondrian_Composition_II_in_Red%2C_Blue%2C_and_Yellow.jpg` | PD |
+| `bauhaus.jpg` | [File:Bauhaus.JPG](https://commons.wikimedia.org/wiki/File:Bauhaus.JPG) | `https://upload.wikimedia.org/wikipedia/commons/6/6e/Bauhaus.JPG` | PD |
+| `guernica.jpg` | [File:Mural del Gernika.jpg](https://commons.wikimedia.org/wiki/File:Mural_del_Gernika.jpg) | 미확인 - 피카소 원작 저작권 보호 중 (사망 1973). 벽화 타일 재현본 사진만 CC BY-SA 가능 | 저작권 주의 |
+
+### 저작권 주의사항
+
+- **피카소 작품** (`picasso_cubism.jpg`, `guernica.jpg`): 피카소(1881-1973)는 사망 후 70년이 경과하지 않아 대부분의 국가에서 저작권 보호 중. 작품 자체의 PD 이미지는 Wikimedia Commons에 없음. 대안으로:
+  - `picasso_cubism.jpg`: Juan Gris의 피카소 초상화 ([File:Juan Gris - Portrait of Pablo Picasso - Google Art Project.jpg](https://commons.wikimedia.org/wiki/File:Juan_Gris_-_Portrait_of_Pablo_Picasso_-_Google_Art_Project.jpg)) 사용 가능 (PD)
+  - `guernica.jpg`: 게르니카 시내 타일 벽화 재현 사진 사용 가능 (CC BY-SA 4.0, 원작 아님)
+- **하기아 소피아 내부 사진**: 현대 사진이므로 CC BY-SA 라이선스 (퍼블릭 도메인 아님). 출처 표기 필요.
+- **바우하우스 건물 사진**: CC BY-SA 또는 PD-user. 출처 표기 권장.
+- **마티스 작품** (`matisse.jpg`): 마티스(1869-1954) 사망 후 70년 경과 (2025년부터 PD 진입). 2026년 기준 퍼블릭 도메인.
