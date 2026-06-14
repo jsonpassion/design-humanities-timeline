@@ -6,955 +6,438 @@
 <title>디자인인문학 연대표</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+:root{
+  --ag:#5B9FE6;--rm:#BFA04F;--rn:#E6C84A;--ro:#B070D4;
+  --id:#D45B5B;--nf:#6B9FC4;--md:#E8944A;
+  --bg:#07070b;--glass:rgba(255,255,255,0.03);--gb:rgba(255,255,255,0.07);
+  --gh:rgba(255,255,255,0.06);--gs:rgba(255,255,255,0.10);
+  --tx:#e4e2df;--td:#6e6e6e;--tw:#c4b07a;
+  --r:16px;--rs:10px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden;line-height:1.7}
 
-:root {
-  --ancient-greece: #4A90D9;
-  --rome-medieval: #A68B3C;
-  --renaissance: #DAA520;
-  --romanticism: #9B59B6;
-  --industrial: #C0392B;
-  --nietzsche-freud: #4A6B8A;
-  --modern-design: #E67E22;
-  --bg: #08080c;
-  --bg-card: #111118;
-  --bg-elevated: #1a1a24;
-  --text: #e8e6e3;
-  --text-muted: #7a7a7a;
-  --text-accent: #c8b888;
-  --border: rgba(255,255,255,0.06);
-}
+.glass{background:var(--glass);backdrop-filter:blur(24px) saturate(1.4);-webkit-backdrop-filter:blur(24px) saturate(1.4);border:1px solid var(--gb);border-radius:var(--r)}
+.glass-s{background:var(--gs);backdrop-filter:blur(32px) saturate(1.6);-webkit-backdrop-filter:blur(32px) saturate(1.6);border:1px solid rgba(255,255,255,0.12);border-radius:var(--r)}
+.glow{position:absolute;border-radius:50%;filter:blur(120px);opacity:0.07;pointer-events:none;z-index:0}
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Noto Sans KR', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  overflow-x: hidden;
-  line-height: 1.6;
-}
+/* HERO */
+.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;overflow:hidden}
+.hero .g1{width:500px;height:500px;background:var(--ag);top:-100px;left:-100px}
+.hero .g2{width:400px;height:400px;background:var(--md);bottom:-80px;right:-80px}
+.hero h1{font-family:'Noto Serif KR',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;letter-spacing:-0.03em;margin-bottom:0.6rem;position:relative;z-index:1;background:linear-gradient(135deg,var(--tx) 30%,var(--tw) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .sub{font-size:clamp(0.8rem,1.5vw,1rem);color:var(--td);font-weight:300;letter-spacing:0.4em;margin-bottom:2.5rem;position:relative;z-index:1}
+.hero .narrative{max-width:560px;font-size:clamp(0.88rem,1.3vw,1rem);line-height:2.4;color:var(--td);position:relative;z-index:1;padding:0 2rem}
+.hero .narrative em{color:var(--tw);font-style:normal}
+.hero .author-line{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);font-size:0.6rem;color:rgba(255,255,255,0.2);letter-spacing:0.15em;z-index:1;text-align:center;line-height:1.6}
+.scroll-cue{position:absolute;bottom:5rem;left:50%;transform:translateX(-50%);color:var(--td);font-size:0.6rem;letter-spacing:0.25em;animation:fl 2.5s ease-in-out infinite;z-index:1}
+@keyframes fl{0%,100%{opacity:0.3;transform:translateX(-50%) translateY(0)}50%{opacity:0.8;transform:translateX(-50%) translateY(-5px)}}
 
-/* ── HERO ── */
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 20% 50%, rgba(74,144,217,0.06) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 50%, rgba(230,126,34,0.06) 0%, transparent 50%);
-}
-.hero h1 {
-  font-family: 'Noto Serif KR', serif;
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.8rem;
-  position: relative;
-  background: linear-gradient(135deg, var(--text) 0%, var(--text-accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.hero .subtitle {
-  font-size: clamp(0.85rem, 2vw, 1.1rem);
-  color: var(--text-muted);
-  font-weight: 300;
-  letter-spacing: 0.3em;
-  margin-bottom: 3rem;
-  position: relative;
-}
-.hero .narrative {
-  max-width: 620px;
-  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
-  line-height: 2.2;
-  color: var(--text-muted);
-  position: relative;
-  padding: 0 2rem;
-}
-.hero .narrative em {
-  color: var(--text-accent);
-  font-style: normal;
-}
-.scroll-hint {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  color: var(--text-muted);
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  animation: pulse 2s ease-in-out infinite;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-}
-.scroll-hint .arrow { width: 1px; height: 24px; background: linear-gradient(to bottom, var(--text-muted), transparent); }
-@keyframes pulse { 0%,100%{opacity:0.3} 50%{opacity:1} }
+/* THESIS */
+.thesis{padding:5rem 2rem;text-align:center;position:relative;overflow:hidden}
+.thesis .gt{width:600px;height:300px;background:var(--ro);top:50%;left:50%;transform:translate(-50%,-50%)}
+.thesis h2{font-family:'Noto Serif KR',serif;font-size:1.3rem;color:var(--tw);margin-bottom:2rem;position:relative;z-index:1}
+.poles{display:flex;justify-content:center;align-items:stretch;gap:1rem;flex-wrap:wrap;max-width:700px;margin:0 auto 2.5rem;position:relative;z-index:1}
+.pole{flex:1;min-width:200px;padding:1.5rem;text-align:center;line-height:2}
+.pole h3{font-family:'Noto Serif KR',serif;font-size:1.05rem;margin-bottom:0.5rem}
+.pole p{font-size:0.85rem;color:var(--td)}
+.pole-vs{display:flex;align-items:center;font-family:'Noto Serif KR',serif;font-size:1.2rem;color:var(--td);padding:0 0.5rem}
+.thesis-body{max-width:520px;margin:0 auto;font-size:0.92rem;line-height:2.2;color:var(--td);position:relative;z-index:1}
+.thesis-body strong{color:var(--tx)}
 
-/* ── INSIGHT BANNER ── */
-.insight-banner {
-  padding: 5rem 2rem;
-  text-align: center;
-  border-bottom: 1px solid var(--border);
-}
-.insight-banner h2 {
-  font-family: 'Noto Serif KR', serif;
-  font-size: 1.5rem;
-  color: var(--text-accent);
-  margin-bottom: 2.5rem;
-}
-.dialectic {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  max-width: 800px;
-  margin: 0 auto 3rem;
-}
-.dialectic-pole {
-  padding: 1.2rem 2rem;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  font-size: 0.9rem;
-  min-width: 180px;
-  line-height: 1.8;
-}
-.dialectic-pole.rational { border-color: rgba(74,144,217,0.25); background: rgba(74,144,217,0.04); }
-.dialectic-pole.emotional { border-color: rgba(155,89,182,0.25); background: rgba(155,89,182,0.04); }
-.dialectic-pole h3 { font-family: 'Noto Serif KR', serif; font-size: 1.1rem; margin-bottom: 0.4rem; }
-.dialectic-vs { font-family: 'Noto Serif KR', serif; font-size: 1.3rem; color: var(--text-muted); }
-.insight-text {
-  max-width: 600px;
-  margin: 0 auto;
-  font-size: 0.95rem;
-  line-height: 2;
-  color: var(--text-muted);
-}
-.insight-text strong { color: var(--text); }
+/* NAV */
+.era-nav{position:sticky;top:0;z-index:200;background:rgba(7,7,11,0.75);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--gb);overflow-x:auto}
+.era-nav::-webkit-scrollbar{display:none}
+.era-nav-inner{display:flex;justify-content:center;min-width:max-content;padding:0 0.5rem}
+.era-tab{padding:0.8rem 1.2rem;font-size:0.78rem;color:var(--td);cursor:pointer;border-bottom:2px solid transparent;transition:all 0.3s;white-space:nowrap;letter-spacing:0.06em}
+.era-tab:hover{color:var(--tx)}
+.era-tab.active{color:var(--tx);border-bottom-color:var(--tc)}
 
-/* ── NAV ── */
-.era-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(8,8,12,0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-.era-nav::-webkit-scrollbar { display: none; }
-.era-nav-inner {
-  display: flex;
-  justify-content: center;
-  min-width: max-content;
-  padding: 0 1rem;
-}
-.era-tab {
-  padding: 0.9rem 1.3rem;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  transition: all 0.3s;
-  white-space: nowrap;
-  letter-spacing: 0.05em;
-}
-.era-tab:hover { color: var(--text); }
-.era-tab.active { color: var(--text); border-bottom-color: var(--tab-color); }
+/* MAIN LAYOUT */
+.main-layout{display:flex;max-width:1200px;margin:0 auto;position:relative}
+.timeline-col{flex:1;min-width:0;padding:0 1.5rem 0 2rem}
+.side-panel{position:sticky;top:60px;width:360px;height:calc(100vh - 60px);flex-shrink:0;padding:1.5rem 1.5rem 1.5rem 0;display:flex;align-items:flex-start;pointer-events:none}
+.side-panel-inner{width:100%;max-height:calc(100vh - 100px);overflow-y:auto;padding:1.8rem;opacity:0;transform:translateX(12px);transition:all 0.4s cubic-bezier(0.16,1,0.3,1);pointer-events:auto;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.08) transparent}
+.side-panel-inner::-webkit-scrollbar{width:3px}
+.side-panel-inner::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.08);border-radius:2px}
+.side-panel-inner.vis{opacity:1;transform:translateX(0)}
+.sp-era{font-size:0.7rem;letter-spacing:0.15em;margin-bottom:0.3rem}
+.sp-year{font-family:'Noto Serif KR',serif;font-size:0.85rem;margin-bottom:0.2rem}
+.sp-title{font-family:'Noto Serif KR',serif;font-size:1.2rem;font-weight:700;margin-bottom:1rem}
+.sp-image{width:100%;height:180px;border-radius:var(--rs);overflow:hidden;margin-bottom:1rem;background:rgba(255,255,255,0.02);border:1px solid var(--gb)}
+.sp-image img{width:100%;height:100%;object-fit:cover}
+.sp-image .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--td);opacity:0.25;text-align:center;padding:1rem}
+.sp-body{font-size:0.88rem;line-height:2;color:var(--td);margin-bottom:1rem}
+.sp-dl{padding:0.8rem 1rem;background:rgba(196,176,122,0.06);border-left:2px solid var(--tw);border-radius:0 var(--rs) var(--rs) 0;font-size:0.82rem;line-height:1.8;color:var(--td)}
+.sp-dl .lb{font-size:0.65rem;color:var(--tw);letter-spacing:0.12em;margin-bottom:0.2rem}
 
-/* ── ERA SECTION ── */
-.era-section {
-  padding: 5rem 2rem 3rem;
-  border-bottom: 1px solid var(--border);
-  position: relative;
+/* ERA SECTION */
+.era-section{padding:4.5rem 0 2rem;position:relative}
+.era-header{text-align:center;margin-bottom:2rem;padding:0 2rem}
+.era-header .period{font-size:0.75rem;letter-spacing:0.3em;color:var(--td);margin-bottom:0.3rem}
+.era-header h2{font-family:'Noto Serif KR',serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:900;margin-bottom:0.6rem}
+.era-header .desc{font-size:0.9rem;color:var(--td);max-width:520px;margin:0 auto 1rem}
+.era-keywords{display:flex;justify-content:center;gap:0.4rem;flex-wrap:wrap}
+.era-kw{padding:0.2rem 0.6rem;border-radius:100px;font-size:0.7rem;border:1px solid rgba(255,255,255,0.08);color:var(--td);background:rgba(255,255,255,0.02)}
+
+/* PERSON ROW — centered grid */
+.person-row{
+  display:flex;justify-content:center;flex-wrap:wrap;gap:0.7rem;
+  padding:0 2rem 1.5rem;margin-bottom:1rem;
 }
-.era-header {
-  text-align: center;
-  margin-bottom: 3rem;
+.p-card{
+  width:130px;padding:0;overflow:hidden;
+  transition:all 0.3s cubic-bezier(0.16,1,0.3,1);
 }
-.era-header .era-period {
-  font-size: 0.8rem;
-  letter-spacing: 0.3em;
-  color: var(--text-muted);
-  margin-bottom: 0.4rem;
+.p-card:hover{
+  transform:translateY(-3px);
+  border-color:rgba(255,255,255,0.14);
+  box-shadow:0 8px 32px rgba(0,0,0,0.35),inset 0 1px 0 rgba(255,255,255,0.05);
 }
-.era-header h2 {
-  font-family: 'Noto Serif KR', serif;
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  font-weight: 900;
-  margin-bottom: 0.8rem;
+.p-card-img{width:100%;height:90px;overflow:hidden;background:rgba(255,255,255,0.02);display:flex;align-items:center;justify-content:center}
+.p-card-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(25%);transition:filter 0.3s}
+.p-card:hover .p-card-img img{filter:grayscale(0%)}
+.p-card-img .phd{font-size:1.3rem;opacity:0.08}
+.p-card-body{padding:0.5rem 0.6rem}
+.p-card-name{font-family:'Noto Serif KR',serif;font-size:0.78rem;font-weight:700}
+.p-card-role{font-size:0.62rem;color:var(--td);margin-top:0.1rem;line-height:1.4}
+
+/* TIMELINE */
+.tl-track{position:relative;padding-left:40px}
+.tl-track::before{content:'';position:absolute;left:16px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--gb) 5%,var(--gb) 95%,transparent)}
+
+.ev{position:relative;margin-bottom:0.8rem;padding:1rem 1.3rem;cursor:pointer;transition:all 0.3s cubic-bezier(0.16,1,0.3,1)}
+.ev::before{content:'';position:absolute;left:-28px;top:50%;transform:translateY(-50%);width:7px;height:7px;border-radius:50%;background:var(--ec);box-shadow:0 0 0 2px var(--bg),0 0 0 3px var(--ec);transition:all 0.3s;z-index:2}
+.ev:hover,.ev.active{background:var(--gh);border-color:rgba(255,255,255,0.12);transform:translateX(3px);box-shadow:0 4px 20px rgba(0,0,0,0.2),inset 0 1px 0 rgba(255,255,255,0.03)}
+.ev:hover::before,.ev.active::before{transform:translateY(-50%) scale(1.4)}
+.ev-head{display:flex;align-items:baseline;gap:0.7rem;margin-bottom:0.15rem}
+.ev-year{font-family:'Noto Serif KR',serif;font-size:0.78rem;color:var(--ec);letter-spacing:0.04em;flex-shrink:0}
+.ev-title{font-family:'Noto Serif KR',serif;font-size:1.05rem;font-weight:700}
+.ev-badge{display:inline-block;padding:0.08rem 0.35rem;border-radius:3px;font-size:0.55rem;margin-left:0.3rem;vertical-align:middle;opacity:0.4;font-weight:400}
+.ev-badge.person{background:rgba(91,159,230,0.12);color:#8bc0f0}
+.ev-badge.work{background:rgba(218,165,32,0.12);color:#e8d080}
+.ev-badge.event{background:rgba(212,91,91,0.12);color:#e89090}
+.ev-badge.concept{background:rgba(176,112,212,0.12);color:#caa0e8}
+.ev-desc{font-size:0.84rem;color:var(--td)}
+
+/* Mobile detail */
+.ev-mob{max-height:0;overflow:hidden;opacity:0;transition:max-height 0.4s cubic-bezier(0.16,1,0.3,1),opacity 0.3s}
+.ev.active .ev-mob{max-height:600px;opacity:1}
+.ev-mob-inner{padding-top:0.8rem;margin-top:0.6rem;border-top:1px solid var(--gb)}
+.ev-mob-img{width:100%;height:140px;border-radius:var(--rs);overflow:hidden;margin-bottom:0.8rem;background:rgba(255,255,255,0.02);border:1px solid var(--gb)}
+.ev-mob-img img{width:100%;height:100%;object-fit:cover}
+.ev-mob-img .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:var(--td);opacity:0.25}
+.ev-mob-text{font-size:0.82rem;line-height:1.9;color:var(--td)}
+.ev-mob-dl{margin-top:0.6rem;padding:0.6rem 0.8rem;background:rgba(196,176,122,0.05);border-left:2px solid var(--tw);border-radius:0 6px 6px 0;font-size:0.78rem;color:var(--td);line-height:1.7}
+
+/* QUOTE */
+.quote-block{max-width:640px;margin:1.5rem auto 0;padding:1.2rem 1.6rem;background:rgba(196,176,122,0.03);border-left:2px solid rgba(196,176,122,0.25);border-radius:0 var(--rs) var(--rs) 0;font-size:0.88rem;line-height:2;color:var(--td);font-style:italic}
+.quote-block .src{display:block;margin-top:0.3rem;font-size:0.68rem;color:var(--tw);font-style:normal;letter-spacing:0.06em}
+
+/* CROSS THEMES */
+.themes{padding:5rem 2rem;position:relative;overflow:hidden}
+.themes .gth{width:500px;height:300px;background:var(--tw);top:50%;left:50%;transform:translate(-50%,-50%)}
+.themes h2{font-family:'Noto Serif KR',serif;font-size:1.3rem;text-align:center;margin-bottom:0.6rem;color:var(--tw);position:relative;z-index:1}
+.themes .themes-sub{text-align:center;font-size:0.85rem;color:var(--td);margin-bottom:2.5rem;position:relative;z-index:1}
+.th-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem;max-width:1000px;margin:0 auto;position:relative;z-index:1}
+.th-card{padding:0;overflow:hidden;transition:all 0.35s cubic-bezier(0.16,1,0.3,1);cursor:default}
+.th-card:hover{border-color:rgba(255,255,255,0.16);transform:translateY(-4px);box-shadow:0 12px 48px rgba(0,0,0,0.35),inset 0 1px 0 rgba(255,255,255,0.05)}
+.th-card-head{padding:1.4rem 1.6rem 0.8rem;border-bottom:1px solid var(--gb)}
+.th-card-head h3{font-family:'Noto Serif KR',serif;font-size:1.1rem;margin-bottom:0.3rem}
+.th-card-head .th-tagline{font-size:0.75rem;color:var(--tw)}
+.th-card-body{padding:1rem 1.6rem 1.4rem}
+.th-card-body p{font-size:0.82rem;color:var(--td);line-height:1.95}
+.th-flow{display:flex;align-items:center;gap:0.3rem;margin-top:0.8rem;font-size:0.7rem;color:var(--td);flex-wrap:wrap}
+.th-flow .n{padding:0.15rem 0.45rem;background:rgba(255,255,255,0.04);border-radius:4px;white-space:nowrap;border:1px solid rgba(255,255,255,0.06)}
+.th-flow .a{color:var(--tw)}
+
+/* FOOTER */
+.footer{padding:3rem 2rem 2rem;text-align:center;border-top:1px solid var(--gb)}
+.footer .ci{font-family:'Noto Serif KR',serif;font-size:0.9rem;margin-bottom:0.4rem}
+.footer p{font-size:0.72rem;color:var(--td);line-height:2}
+.footer .credits{margin-top:1rem;font-size:0.62rem;color:rgba(255,255,255,0.2);letter-spacing:0.05em;line-height:1.8}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .side-panel{display:none}
+  .main-layout{display:block}
 }
-.era-header .era-desc {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  max-width: 500px;
-  margin: 0 auto 1.2rem;
-}
-.era-keywords {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-.era-keyword {
-  padding: 0.25rem 0.7rem;
-  border-radius: 100px;
-  font-size: 0.75rem;
-  border: 1px solid rgba(255,255,255,0.12);
-  color: var(--text-muted);
+@media(max-width:768px){
+  .era-tab{padding:0.7rem 0.8rem;font-size:0.7rem}
+  .tl-track{padding-left:32px}
+  .tl-track::before{left:12px}
+  .ev::before{left:-24px}
+  .p-card{width:110px}
+  .p-card-img{height:72px}
+  .poles{flex-direction:column;gap:0.6rem}
+  .th-grid{grid-template-columns:1fr}
 }
 
-/* ── PERSON CARDS ROW ── */
-.person-cards-row {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  padding: 0 0 1.5rem;
-  margin-bottom: 2.5rem;
-  max-width: 960px;
-  margin-left: auto;
-  margin-right: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255,255,255,0.1) transparent;
-}
-.person-cards-row::-webkit-scrollbar { height: 4px; }
-.person-cards-row::-webkit-scrollbar-track { background: transparent; }
-.person-cards-row::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
-
-.person-card {
-  flex: 0 0 160px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
-  position: relative;
-}
-.person-card:hover {
-  border-color: rgba(255,255,255,0.15);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-}
-.person-card-img {
-  width: 100%;
-  height: 120px;
-  background: var(--bg-elevated);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-.person-card-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(40%) contrast(1.1);
-  transition: filter 0.3s;
-}
-.person-card:hover .person-card-img img { filter: grayscale(0%) contrast(1); }
-.person-card-img .placeholder-icon {
-  font-size: 2rem;
-  opacity: 0.15;
-}
-.person-card-body {
-  padding: 0.8rem;
-}
-.person-card-name {
-  font-family: 'Noto Serif KR', serif;
-  font-size: 0.85rem;
-  font-weight: 700;
-  margin-bottom: 0.2rem;
-}
-.person-card-role {
-  font-size: 0.7rem;
-  color: var(--text-muted);
-  line-height: 1.4;
-}
-.person-card-years {
-  font-size: 0.65rem;
-  color: var(--text-muted);
-  margin-top: 0.3rem;
-  opacity: 0.6;
-}
-
-/* Person card hover tooltip */
-.person-tooltip {
-  display: none;
-  position: absolute;
-  bottom: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%);
-  width: 280px;
-  background: var(--bg-elevated);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 10px;
-  padding: 1.2rem;
-  z-index: 50;
-  box-shadow: 0 16px 48px rgba(0,0,0,0.6);
-  pointer-events: none;
-}
-.person-card:hover .person-tooltip { display: block; }
-.person-tooltip::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 6px solid transparent;
-  border-top-color: rgba(255,255,255,0.12);
-}
-.person-tooltip-title {
-  font-family: 'Noto Serif KR', serif;
-  font-size: 0.95rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-.person-tooltip-desc {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  line-height: 1.7;
-  margin-bottom: 0.6rem;
-}
-.person-tooltip-design {
-  font-size: 0.75rem;
-  color: var(--text-accent);
-  line-height: 1.5;
-  padding-top: 0.5rem;
-  border-top: 1px solid var(--border);
-}
-
-/* ── TIMELINE ── */
-.timeline-track {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  padding-left: 50px;
-}
-.timeline-track::before {
-  content: '';
-  position: absolute;
-  left: 22px;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: rgba(255,255,255,0.08);
-}
-
-/* ── EVENT CARDS ── */
-.event-card {
-  position: relative;
-  margin-bottom: 1.2rem;
-  padding: 1.2rem 1.5rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
-}
-.event-card::before {
-  content: '';
-  position: absolute;
-  left: -34px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--era-color);
-  border: 2px solid var(--bg);
-  box-shadow: 0 0 0 2px var(--era-color);
-  transition: all 0.3s;
-  z-index: 2;
-}
-.event-card:hover {
-  border-color: rgba(255,255,255,0.12);
-  transform: translateX(3px);
-}
-.event-card:hover::before {
-  transform: translateY(-50%) scale(1.3);
-}
-.event-card-header {
-  display: flex;
-  align-items: baseline;
-  gap: 0.8rem;
-  margin-bottom: 0.3rem;
-}
-.event-year {
-  font-family: 'Noto Serif KR', serif;
-  font-size: 0.8rem;
-  color: var(--era-color);
-  letter-spacing: 0.05em;
-  flex-shrink: 0;
-}
-.event-title {
-  font-family: 'Noto Serif KR', serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-}
-.event-badge {
-  display: inline-block;
-  padding: 0.1rem 0.4rem;
-  border-radius: 3px;
-  font-size: 0.6rem;
-  margin-left: 0.4rem;
-  vertical-align: middle;
-  opacity: 0.5;
-}
-.event-badge.person { background: rgba(74,144,217,0.15); color: #7ab5e8; }
-.event-badge.work { background: rgba(218,165,32,0.15); color: #e8d080; }
-.event-badge.event { background: rgba(192,57,43,0.15); color: #e88080; }
-.event-badge.concept { background: rgba(155,89,182,0.15); color: #c89be8; }
-.event-desc {
-  font-size: 0.88rem;
-  color: var(--text-muted);
-}
-
-/* Expand detail */
-.event-detail {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s cubic-bezier(0.16,1,0.3,1), opacity 0.3s;
-  opacity: 0;
-}
-.event-card.expanded .event-detail {
-  max-height: 500px;
-  opacity: 1;
-}
-.event-detail-inner {
-  display: flex;
-  gap: 1.2rem;
-  padding-top: 1rem;
-  margin-top: 0.8rem;
-  border-top: 1px solid var(--border);
-}
-.event-image {
-  width: 160px;
-  height: 120px;
-  border-radius: 8px;
-  overflow: hidden;
-  flex-shrink: 0;
-  background: var(--bg-elevated);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.event-image img { width: 100%; height: 100%; object-fit: cover; }
-.event-image .ph { font-size: 0.65rem; color: var(--text-muted); text-align: center; padding: 0.5rem; opacity: 0.4; }
-.event-detail-text { flex: 1; font-size: 0.85rem; line-height: 1.8; color: var(--text-muted); }
-.event-detail-text .design-link {
-  margin-top: 0.6rem;
-  padding-top: 0.6rem;
-  border-top: 1px solid var(--border);
-  font-size: 0.8rem;
-}
-.event-detail-text .dl-label { color: var(--text-accent); font-size: 0.7rem; letter-spacing: 0.1em; margin-bottom: 0.2rem; }
-
-/* ── PROFESSOR QUOTE ── */
-.prof-quote {
-  max-width: 700px;
-  margin: 2rem auto;
-  padding: 1.5rem 2rem;
-  background: rgba(200,184,136,0.04);
-  border-left: 3px solid var(--text-accent);
-  border-radius: 0 8px 8px 0;
-  font-size: 0.9rem;
-  line-height: 1.9;
-  color: var(--text-muted);
-  font-style: italic;
-}
-.prof-quote .source {
-  display: block;
-  margin-top: 0.5rem;
-  font-size: 0.75rem;
-  color: var(--text-accent);
-  font-style: normal;
-  letter-spacing: 0.05em;
-}
-
-/* ── CROSS THEMES ── */
-.cross-themes {
-  padding: 5rem 2rem;
-  border-bottom: 1px solid var(--border);
-}
-.cross-themes h2 {
-  font-family: 'Noto Serif KR', serif;
-  font-size: 1.5rem;
-  text-align: center;
-  margin-bottom: 2.5rem;
-  color: var(--text-accent);
-}
-.theme-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  max-width: 960px;
-  margin: 0 auto;
-}
-.theme-card {
-  padding: 1.8rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  transition: all 0.3s;
-}
-.theme-card:hover {
-  border-color: rgba(255,255,255,0.12);
-  transform: translateY(-3px);
-}
-.theme-card h3 { font-family: 'Noto Serif KR', serif; font-size: 1.15rem; margin-bottom: 0.8rem; }
-.theme-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; }
-.theme-flow {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  margin-top: 0.8rem;
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  flex-wrap: wrap;
-}
-.theme-flow .node {
-  padding: 0.2rem 0.5rem;
-  background: rgba(255,255,255,0.04);
-  border-radius: 4px;
-  white-space: nowrap;
-}
-.theme-flow .arr { color: var(--text-accent); }
-
-/* ── FOOTER ── */
-.footer {
-  padding: 3rem 2rem;
-  text-align: center;
-}
-.footer .course-info {
-  font-family: 'Noto Serif KR', serif;
-  font-size: 0.95rem;
-  margin-bottom: 0.5rem;
-}
-.footer p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.8; }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 768px) {
-  .era-tab { padding: 0.7rem 0.9rem; font-size: 0.7rem; }
-  .timeline-track { padding-left: 36px; }
-  .timeline-track::before { left: 14px; }
-  .event-card::before { left: -26px; }
-  .event-card { padding: 1rem 1.2rem; }
-  .event-title { font-size: 1rem; }
-  .event-detail-inner { flex-direction: column; }
-  .event-image { width: 100%; height: 140px; }
-  .person-card { flex: 0 0 130px; }
-  .person-card-img { height: 90px; }
-  .person-tooltip { display: none !important; }
-  .dialectic { flex-direction: column; gap: 0.8rem; }
-}
-
-/* ── ANIMATIONS ── */
-.fade-in {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.5s, transform 0.5s;
-}
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+.fi{opacity:0;transform:translateY(14px);transition:opacity 0.5s,transform 0.5s}
+.fi.v{opacity:1;transform:translateY(0)}
 </style>
 </head>
 <body>
 
 <section class="hero">
+  <div class="glow g1"></div><div class="glow g2"></div>
   <h1>디자인인문학 연대표</h1>
-  <p class="subtitle">BC 6세기 — AD 20세기</p>
+  <p class="sub">BC 6세기 — AD 20세기</p>
   <p class="narrative">
     그리스인이 물었다. <em>"만물의 근원은 무엇인가?"</em><br>
-    소크라테스가 전환했다. <em>"인간은 어떻게 살아야 하는가?"</em><br>
+    소크라테스가 방향을 틀었다. <em>"인간은 어떻게 살아야 하는가?"</em><br>
     이 물음은 2,500년을 관통하며<br>
-    마침내 <em>모던 디자인</em>이라는 이름으로 결실을 맺었다.
+    마침내 <em>모던 디자인</em>이라는 이름으로 결실을 맺는다.
   </p>
-  <div class="scroll-hint"><span>SCROLL</span><div class="arrow"></div></div>
+  <div class="scroll-cue">SCROLL</div>
+  <div class="author-line">Jason J. Lee</div>
 </section>
 
-<section class="insight-banner">
-  <h2>관통하는 대립 구도</h2>
-  <div class="dialectic">
-    <div class="dialectic-pole rational">
-      <h3>이성 · 합리</h3>
-      <p>아리스토텔레스 · 과학혁명<br>산업혁명 · 아폴론<br>차가운 추상(몬드리안)</p>
+<section class="thesis">
+  <div class="glow gt"></div>
+  <h2>2,500년을 관통하는 하나의 구도</h2>
+  <div class="poles">
+    <div class="pole glass">
+      <h3>이성</h3>
+      <p>아리스토텔레스, 과학혁명<br>산업혁명, 아폴론<br>몬드리안의 차가운 추상</p>
     </div>
-    <span class="dialectic-vs">⟷</span>
-    <div class="dialectic-pole emotional">
-      <h3>감성 · 이상</h3>
-      <p>플라톤 · 낭만주의<br>표현주의 · 디오니소스<br>뜨거운 추상(칸딘스키)</p>
+    <div class="pole-vs">⟷</div>
+    <div class="pole glass">
+      <h3>감성</h3>
+      <p>플라톤, 낭만주의<br>표현주의, 디오니소스<br>칸딘스키의 뜨거운 추상</p>
     </div>
   </div>
-  <p class="insight-text">
-    인류 사상사는 이 두 극 사이를 왕복해 왔다.<br>
-    <strong>디자인은 바로 그 균형점에 선다.</strong>
+  <p class="thesis-body">
+    사상사는 이 두 극 사이를 왕복해 왔다.<br>
+    대영도서관 앞에 블레이크의 뉴턴 동상이 서 있듯,<br>
+    <strong>디자인은 그 균형점에 선다.</strong>
   </p>
 </section>
 
-<nav class="era-nav" id="eraNav">
-  <div class="era-nav-inner" id="eraNavInner"></div>
-</nav>
+<nav class="era-nav"><div class="era-nav-inner" id="navIn"></div></nav>
 
-<main id="timelineContent"></main>
+<div class="main-layout">
+  <div class="timeline-col" id="tlCol"></div>
+  <div class="side-panel" id="sp"><div class="side-panel-inner glass-s" id="spI"></div></div>
+</div>
 
-<section class="cross-themes">
-  <h2>전 강의를 관통하는 세 갈래</h2>
-  <div class="theme-cards">
-    <div class="theme-card">
-      <h3>바우하우스의 뿌리</h3>
-      <p>오캄의 면도날이 "단순함이 최고"를 선언하고, 중세 길드의 장인정신이 바우하우스 선언문에 고딕 성당 판화로 새겨졌다.</p>
-      <div class="theme-flow">
-        <span class="node">오캄 13C</span><span class="arr">&rarr;</span>
-        <span class="node">고딕 길드</span><span class="arr">&rarr;</span>
-        <span class="node">Less is More</span><span class="arr">&rarr;</span>
-        <span class="node">바우하우스 1919</span>
+<section class="themes">
+  <div class="glow gth"></div>
+  <h2>강의 전체를 관통하는 세 갈래</h2>
+  <p class="themes-sub">2,500년의 흐름 속에서 반복적으로 나타나는 세 가지 줄기</p>
+  <div class="th-grid">
+    <div class="th-card glass">
+      <div class="th-card-head">
+        <h3>바우하우스의 뿌리</h3>
+        <span class="th-tagline">단순함의 계보</span>
+      </div>
+      <div class="th-card-body">
+        <p>13세기 오캄은 "불필요한 것을 제거하라"고 했다. 중세 길드의 장인들은 함께 모여 성당을 지었다. 1919년 그로피우스는 바우하우스 선언문에 그 고딕 성당의 판화를 새겨 넣으며 이 모든 것을 하나로 엮었다.</p>
+        <div class="th-flow">
+          <span class="n">오캄 13C</span><span class="a">&rarr;</span>
+          <span class="n">고딕 길드</span><span class="a">&rarr;</span>
+          <span class="n">Less is More</span><span class="a">&rarr;</span>
+          <span class="n">바우하우스 1919</span>
+        </div>
       </div>
     </div>
-    <div class="theme-card">
-      <h3>인문학 + 디자인 = 혁신</h3>
-      <p>잡스는 소크라테스를 만나고 싶어 했고, 블레이크의 시에서 아이폰의 영감을 얻었으며, 칼 융의 페르소나가 UX 디자인이 되었다.</p>
-      <div class="theme-flow">
-        <span class="node">소크라테스</span><span class="arr">&rarr;</span>
-        <span class="node">블레이크</span><span class="arr">&rarr;</span>
-        <span class="node">Think Different</span><span class="arr">&rarr;</span>
-        <span class="node">Apple</span>
+    <div class="th-card glass">
+      <div class="th-card-head">
+        <h3>인문학이 디자인이 될 때</h3>
+        <span class="th-tagline">철학에서 제품으로</span>
+      </div>
+      <div class="th-card-body">
+        <p>잡스는 소크라테스를 만나고 싶어 했고, 블레이크의 시구 "내 손안에 무한을 쥐어라"에서 아이폰을 떠올렸다. 칼 융이 만든 '페르소나'는 이제 UX 디자이너의 일상 언어가 되었다.</p>
+        <div class="th-flow">
+          <span class="n">소크라테스</span><span class="a">&rarr;</span>
+          <span class="n">블레이크</span><span class="a">&rarr;</span>
+          <span class="n">Think Different</span><span class="a">&rarr;</span>
+          <span class="n">Apple</span>
+        </div>
       </div>
     </div>
-    <div class="theme-card">
-      <h3>근원에서 조형으로</h3>
-      <p>탈레스의 물, 제논의 점에서 시작된 근원의 물음이 칸딘스키의 점·선·면, 말레비치의 검은 사각형으로 결실을 맺었다.</p>
-      <div class="theme-flow">
-        <span class="node">아르케 BC 6C</span><span class="arr">&rarr;</span>
-        <span class="node">점선면</span><span class="arr">&rarr;</span>
-        <span class="node">검은 사각형</span><span class="arr">&rarr;</span>
-        <span class="node">바우하우스 조형</span>
+    <div class="th-card glass">
+      <div class="th-card-head">
+        <h3>근원에서 조형으로</h3>
+        <span class="th-tagline">아르케가 점선면이 되기까지</span>
+      </div>
+      <div class="th-card-body">
+        <p>탈레스가 '물'이라 했고, 제논은 '점'이라 했다. 그 물음이 칸딘스키의 점선면이 되고, 말레비치의 검은 사각형이 되었다. 디자인의 기본 요소는 곧 존재의 근원이다.</p>
+        <div class="th-flow">
+          <span class="n">아르케 BC 6C</span><span class="a">&rarr;</span>
+          <span class="n">점선면 1926</span><span class="a">&rarr;</span>
+          <span class="n">검은 사각형</span><span class="a">&rarr;</span>
+          <span class="n">바우하우스 조형</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <footer class="footer">
-  <p class="course-info">디자인인문학 — 2026학년도 1학기</p>
+  <p class="ci">디자인인문학 연대표</p>
   <p>BC 6세기 그리스 자연철학에서 20세기 모던디자인까지<br>디자인과 인문학이 교차하는 2,500년의 여정</p>
+  <div class="credits">
+    Jason J. Lee<br>
+    2026학년도 1학기 한양사이버대학교(HYCU) 김학민 교수님 디자인인문학 최종과제
+  </div>
 </footer>
 
 <script>
-const ERAS = [
-  { id:"ancient-greece", name:"고대 그리스", period:"BC 6C ~ BC 4C", color:"#4A90D9", rgb:"74,144,217",
-    description:"자연의 근원(아르케)에서 인간 철학으로", keywords:["아르케","이데아","점선면","미메시스"],
-    quote:"위대한 예술 작품의 이면에는 인문학적 토대가 있으며, 기법만이 아니라 철학이 작품의 가치를 결정한다.",
-    quoteSource:"2주차 — 근원에 대한 물음" },
-  { id:"rome-medieval", name:"로마 · 중세", period:"BC 1C ~ 15C", color:"#A68B3C", rgb:"166,139,60",
-    description:"실용의 로마, 신 중심의 중세 1000년", keywords:["Humanitas","오캄의 면도날","고딕","길드"],
-    quote:"중세가 단순한 암흑기가 아니라 현대 디자인의 정신적 뿌리(장인정신, 길드, 건축 이상)를 제공한 시대다.",
-    quoteSource:"5주차 — 중세 예술과 건축" },
-  { id:"renaissance", name:"르네상스 · 과학혁명", period:"14C ~ 17C", color:"#DAA520", rgb:"218,165,32",
-    description:"인간의 부활, 이성과 과학의 시대", keywords:["원근법","인쇄술","지동설","데카르트 좌표"],
-    quote:"다빈치는 화가, 과학자, 발명가, 해부학자를 겸한 '르네상스적 인간' — 디자인 사고(Design Thinking)의 원형이다.",
-    quoteSource:"6주차 — 르네상스와 과학혁명" },
-  { id:"romanticism", name:"낭만주의", period:"18C말 ~ 19C초", color:"#9B59B6", rgb:"155,89,182",
-    description:"차가운 이성에 대한 감성의 반발", keywords:["상상력","블레이크","감성회복","3대 혁명"],
-    quote:"'과학적 사고는 마음의 수갑이다' — 기술 시대에도 인간적 감성을 잃지 않아야 한다.",
-    quoteSource:"9주차 — 윌리엄 블레이크" },
-  { id:"industrial", name:"산업혁명 · 19세기", period:"19C", color:"#C0392B", rgb:"192,57,43",
-    description:"대량생산과 미(美)의 위기", keywords:["증기기관","수정궁","동서양 융합","예술공예운동"],
-    quote:"AI 시대에도 인간의 '손맛'과 감성이 디자인의 진정한 경쟁력이다.",
-    quoteSource:"10주차 — 산업혁명과 디자인" },
-  { id:"nietzsche-freud", name:"니체 · 프로이트", period:"19C말", color:"#4A6B8A", rgb:"74,107,138",
-    description:"신의 죽음, 무의식의 발견", keywords:["초인","무의식","총체예술","페르소나"],
-    quote:"바그너의 총체 예술은 현대 경험 디자인의 원형이 되고, 칼 융의 페르소나는 UX 디자인의 사용자 연구에 직접 연결된다.",
-    quoteSource:"11주차 — 니체, 바그너, 프로이트" },
-  { id:"modern-design", name:"모던디자인의 탄생", period:"19C말 ~ 20C초", color:"#E67E22", rgb:"230,126,34",
-    description:"아르누보에서 바우하우스까지", keywords:["아르누보","5대사조","3대운동","바우하우스"],
-    quote:"모던디자인 3대 운동(구성주의, 데스틸, 바우하우스)은 단순한 양식이 아닌 사회를 바꾸는 철학적 운동이었다.",
-    quoteSource:"12주차 — 세기의 전환" }
+const E=[
+  {id:"ancient-greece",name:"고대 그리스",period:"BC 6C ~ BC 4C",c:"#5B9FE6",rgb:"91,159,230",
+   desc:"철학이 시작된 곳. 세계의 근원을 묻고, 인간으로 시선을 돌리다",kw:["아르케","이데아","점선면","미메시스"],
+   q:""위대한 예술 작품의 이면에는 인문학적 토대가 있다. 기법이 아니라 철학이 작품의 가치를 결정한다."",qs:"근원에 대한 물음"},
+  {id:"rome-medieval",name:"로마 / 중세",period:"BC 1C ~ 15C",c:"#BFA04F",rgb:"191,160,79",
+   desc:"로마는 그리스의 이상을 시스템으로 바꿨고, 중세는 그 위에 신의 이름을 올렸다",kw:["Humanitas","오캄의 면도날","고딕","길드"],
+   q:""중세는 암흑기가 아니다. 장인정신, 길드, 건축의 이상 — 현대 디자인의 정신적 뿌리가 여기 있다."",qs:"중세 예술과 건축"},
+  {id:"renaissance",name:"르네상스 / 과학혁명",period:"14C ~ 17C",c:"#E6C84A",rgb:"230,200,74",
+   desc:"인간이 되돌아왔다. 눈으로 보고, 손으로 그리고, 이성으로 증명하기 시작한 시대",kw:["원근법","인쇄술","지동설","데카르트 좌표"],
+   q:""다빈치는 화가이자 과학자이자 발명가였다. 디자인 사고(Design Thinking)의 원형은 르네상스적 인간에 있다."",qs:"르네상스와 과학혁명"},
+  {id:"romanticism",name:"낭만주의",period:"18C말 ~ 19C초",c:"#B070D4",rgb:"176,112,212",
+   desc:"이성이 지배한 세계에 감성이 반기를 들다",kw:["상상력","블레이크","감성","혁명"],
+   q:""'과학적 사고는 마음의 수갑이다.' 기술의 시대일수록 인간적 감성을 잃지 않아야 한다."",qs:"윌리엄 블레이크"},
+  {id:"industrial",name:"산업혁명 / 19세기",period:"19C",c:"#D45B5B",rgb:"212,91,91",
+   desc:"기계가 손을 대신했다. 대량생산 앞에서 아름다움은 위기에 처한다",kw:["증기기관","수정궁","동서양 융합","예술공예운동"],
+   q:""AI 시대에도 인간의 '손맛'과 감성이 디자인의 진정한 경쟁력이다."",qs:"산업혁명과 디자인"},
+  {id:"nietzsche-freud",name:"니체 / 프로이트",period:"19C말",c:"#6B9FC4",rgb:"107,159,196",
+   desc:"신은 죽었고, 의식 아래 무의식이 발견되다",kw:["초인","무의식","총체예술","페르소나"],
+   q:""바그너의 총체 예술은 현대 경험 디자인의 원형이고, 칼 융의 페르소나는 UX 디자인의 사용자 연구로 이어진다."",qs:"니체, 바그너, 프로이트"},
+  {id:"modern-design",name:"모던디자인의 탄생",period:"19C말 ~ 20C초",c:"#E8944A",rgb:"232,148,74",
+   desc:"곡선에서 직선으로, 장식에서 본질로. 2,500년 인문학이 디자인 교육으로 종합되다",kw:["아르누보","5대 사조","3대 운동","바우하우스"],
+   q:""모던디자인 3대 운동은 양식이 아니라 사회를 바꾸려는 철학적 운동이었다."",qs:"세기의 전환"}
 ];
 
-const PERSONS = {
-  "ancient-greece": [
-    {name:"탈레스",years:"BC 624~546",role:"최초의 철학자",image:"thales.jpg",desc:"만물의 근원은 '물'. 자연현상을 신화가 아닌 이성으로 설명하려는 최초의 시도.",design:"디자인의 근본 질문 '본질이란 무엇인가'의 기원"},
-    {name:"피타고라스",years:"BC 570~495",role:"수학과 조화의 발견자",image:"pythagoras.jpg",desc:"만물의 근원은 수(數). 수학적 비례와 화성의 관계를 밝힘.",design:"황금비율, 그리드 시스템 등 디자인의 수학적 기반"},
-    {name:"소크라테스",years:"BC 469~399",role:"인간 철학으로의 전환",image:"socrates.jpg",desc:"'너 자신을 알라.' 자연에서 인간으로 철학의 관심을 전환. 산파술(문답법).",design:"잡스가 만나고 싶어한 인물 — 숙고하는 삶이 곧 Think Different"},
-    {name:"플라톤",years:"BC 428~348",role:"이데아론, 미메시스",image:"plato.jpg",desc:"감각 너머 완전한 본질(이데아)이 존재. 예술은 '모방의 모방'. 아카데미아 설립.",design:"도널드 저드(미니멀리즘), 조셉 코수스(개념미술)의 철학적 근거"},
-    {name:"아리스토텔레스",years:"BC 384~322",role:"질료형상론, 경험주의",image:"aristotle.jpg",desc:"사물은 질료(재료)와 형상(형태)의 결합. 경험과 관찰 중시.",design:"루이스 칸 건축, 조나단 아이브 — 재료를 알아야 좋은 디자인"},
-    {name:"칸딘스키",years:"1866~1944",role:"점·선·면, 뜨거운 추상",image:"kandinsky.jpg",desc:"음악을 추상화로 표현. 저서 '점선면'으로 조형의 근본 요소를 정리.",design:"바우하우스 교수, 기초조형 교육의 체계화"}
+const P={
+  "ancient-greece":[
+    {n:"탈레스",r:"최초의 철학자",img:"thales.jpg",d:"만물의 근원을 '물'이라 했다. 신화 대신 이성으로 세계를 설명하려 한 최초의 시도.",dl:"디자인이 던져야 할 첫 질문 — '이것의 본질은 무엇인가'의 기원"},
+    {n:"피타고라스",r:"수와 조화",img:"pythagoras.jpg",d:"세상의 비밀은 수(數)에 있다고 보았다. 음악의 화성도 수학적 비율이라는 발견.",dl:"황금비, 그리드 시스템 — 디자인을 지탱하는 수학"},
+    {n:"소크라테스",r:"인간으로의 전환",img:"socrates.jpg",d:"전쟁터에서 돌아온 뒤 '너 자신을 알라'를 평생의 화두로 삼았다.",dl:"잡스가 가장 만나고 싶어 한 인물. Think Different의 원형"},
+    {n:"플라톤",r:"이데아, 모방의 모방",img:"plato.jpg",d:"눈에 보이는 것은 그림자. 완전한 형상(이데아)은 감각 너머에 있다.",dl:"미니멀리즘(도널드 저드), 개념미술(조셉 코수스)의 뿌리"},
+    {n:"아리스토텔레스",r:"재료와 형태",img:"aristotle.jpg",d:"모든 사물은 질료(재료)와 형상(형태)의 만남이라고 했다.",dl:"루이스 칸은 벽돌에게 '무엇이 되고 싶으냐'고 물었다"},
+    {n:"칸딘스키",r:"점, 선, 면",img:"kandinsky.jpg",d:"음악을 그림으로 옮긴 화가. 바우하우스에서 기초조형을 체계화했다.",dl:"모든 디자인 학교의 첫 수업은 여기서 시작된다"}
   ],
-  "rome-medieval": [
-    {name:"키케로",years:"BC 106~43",role:"Humanitas 창시",image:"cicero.jpg",desc:"그리스 철학을 라틴어로 번역. '인문학'이라는 용어를 최초로 만든 인물. 로렘 입섬의 기원.",design:"'디자인 인문학'이라는 학문 자체의 근원"},
-    {name:"윌리엄 오캄",years:"13~14C",role:"오캄의 면도날",image:"occam.jpg",desc:"'실체를 필요 이상으로 중첩해서는 안 된다.' 단순함의 원칙.",design:"Less is More(미스 반데어로에) → Less, But Better(디터 람스)"},
-    {name:"그로피우스",years:"1883~1969",role:"바우하우스 설립자",image:"gropius.jpg",desc:"바우하우스 선언문에 고딕 성당 판화를 삽입. 중세 길드의 장인정신을 교육 이념으로.",design:"현대 디자인 교육의 창시자"},
-    {name:"미스 반데어로에",years:"1886~1969",role:"Less is More",image:"mies.jpg",desc:"바우하우스 마지막 교장. 바르셀로나 파빌리온(1929). 오캄의 면도날을 건축으로.",design:"모던 건축의 아버지, 미니멀리즘 디자인 철학의 상징"}
+  "rome-medieval":[
+    {n:"키케로",r:"Humanitas 창시",img:"cicero.jpg",d:"그리스의 지혜를 라틴어로 옮기면서 '인문학'이라는 말을 만들었다.",dl:"디자인 인문학의 근원. 로렘 입섬도 그의 문장에서 왔다"},
+    {n:"윌리엄 오캄",r:"오캄의 면도날",img:"occam.jpg",d:"'필요 이상으로 복잡하게 만들지 마라.' 700년 뒤 디자인의 원칙이 되다.",dl:"Less is More, Less But Better — 모던 디자인 철학의 뿌리"},
+    {n:"그로피우스",r:"바우하우스 설립",img:"gropius.jpg",d:"선언문에 고딕 성당 판화를 넣었다. 장인들이 함께 더 나은 세상을 만들자는 선언.",dl:"현대 디자인 교육의 창시자"},
+    {n:"미스 반데어로에",r:"Less is More",img:"mies.jpg",d:"바우하우스의 마지막 교장. 바르셀로나 파빌리온에서 오캄의 철학을 건축으로 증명했다.",dl:"공간에서 불필요한 모든 것을 제거하는 디자인"}
   ],
-  "renaissance": [
-    {name:"구텐베르크",years:"~1400~1468",role:"금속활자 인쇄술",image:"gutenberg.jpg",desc:"인쇄술 발명으로 지식의 대중 확산을 가능케 함. 최초 인쇄물: 성경과 키케로의 의무론.",design:"타이포그래피·출판 디자인의 기원"},
-    {name:"다빈치",years:"1452~1519",role:"르네상스적 인간",image:"davinci.jpg",desc:"모나리자, 스푸마토 기법. 화가·과학자·발명가·해부학자를 겸한 통합적 천재.",design:"디자인 사고(Design Thinking)의 원형 — 다학제적 접근"},
-    {name:"미켈란젤로",years:"1475~1564",role:"천지창조, 조각의 정점",image:"michelangelo.jpg",desc:"시스티나 성당 천장화. '돌 속에 갇힌 형상을 해방시킨다'는 조각 철학.",design:"재료(질료) 안에서 형상을 발견하는 디자이너의 태도"},
-    {name:"데카르트",years:"1596~1650",role:"좌표 체계, 방법서설",image:"descartes.jpg",desc:"x축·y축 좌표로 점의 위치를 수학적으로 표현. '나는 생각한다, 고로 존재한다.'",design:"데이터 시각화(인포그래픽)의 수학적 기반, 픽셀·벡터의 원류"},
-    {name:"뉴턴",years:"1643~1727",role:"만유인력, 프린키피아",image:"newton.jpg",desc:"만유인력 법칙으로 과학혁명을 집대성. 신 중심 세계관을 완전히 전복.",design:"블레이크가 뉴턴을 초라하게 그림 → 이성만으로는 부족하다"}
+  "renaissance":[
+    {n:"구텐베르크",r:"인쇄술 발명",img:"gutenberg.jpg",d:"금속활자로 성경을 찍어냈다. 책 한 권을 베끼는 데 1년이 걸리던 시대가 끝났다.",dl:"타이포그래피와 출판 디자인의 기원"},
+    {n:"다빈치",r:"르네상스적 인간",img:"davinci.jpg",d:"화가이자 과학자이자 발명가. 한 사람 안에 모든 분야가 공존했다.",dl:"디자인 사고의 원형 — 경계를 넘나드는 통합적 시선"},
+    {n:"미켈란젤로",r:"천지창조",img:"michelangelo.jpg",d:"시스티나 천장에 누워서 4년을 그렸다. '돌 속에 갇힌 형상을 해방시킬 뿐'이라 했다.",dl:"재료 안에서 형상을 발견하는 디자이너의 태도"},
+    {n:"데카르트",r:"좌표 체계",img:"descartes.jpg",d:"x축과 y축. 단순한 발상이 수학과 기하학을 통합했다.",dl:"인포그래픽의 수학적 기반. 모니터 위 모든 픽셀은 이 좌표 위에 있다"},
+    {n:"뉴턴",r:"만유인력",img:"newton.jpg",d:"프린키피아 한 권으로 과학혁명을 마무리지었다.",dl:"블레이크는 뉴턴을 초라하게 그렸다 — 이성만으로는 부족하다"}
   ],
-  "romanticism": [
-    {name:"윌리엄 블레이크",years:"1757~1827",role:"시화, 그래픽 디자인 선구자",image:"blake.jpg",desc:"시와 그림을 결합한 독자적 세계. '과학적 사고는 마음의 수갑.' 유리젠(Urizen) 창조.",design:"잡스가 시집을 항상 소지. '내 손안에 무한을 쥐어라' → 아이폰"},
-    {name:"드라크루아",years:"1798~1863",role:"낭만주의 회화의 정점",image:"delacroix.jpg",desc:"'민중을 이끄는 자유의 여신'으로 혁명의 역동성을 표현. 색채의 해방.",design:"시각적 아이콘의 힘 — 하나의 이미지가 시대정신을 대변"},
-    {name:"루소",years:"1712~1778",role:"'자연으로 돌아가라'",image:"rousseau.jpg",desc:"문명이 인간을 타락시켰다고 비판. 낭만주의의 사상적 기반을 제공.",design:"자연주의 디자인, 인간 중심 설계의 사상적 기원"}
+  "romanticism":[
+    {n:"블레이크",r:"시화, 그래픽 디자인의 선구",img:"blake.jpg",d:"직접 쓰고 직접 그리고 직접 새겼다. '과학적 사고는 마음의 수갑이다.'",dl:"잡스가 늘 갖고 다닌 시집의 주인. '내 손안에 무한을 쥐어라'"},
+    {n:"드라크루아",r:"낭만주의 회화",img:"delacroix.jpg",d:"'민중을 이끄는 자유의 여신'은 한 그림이 시대를 대변할 수 있음을 보여주었다.",dl:"시각적 아이콘의 힘. 한 장의 이미지가 천 마디를 넘는다"},
+    {n:"루소",r:"자연으로 돌아가라",img:"rousseau.jpg",d:"문명이 인간을 타락시켰다는 외침이 낭만주의의 씨앗이 되었다.",dl:"자연주의 디자인, 인간 중심 설계의 사상적 출발"}
   ],
-  "industrial": [
-    {name:"터너",years:"1775~1851",role:"빛과 증기의 화가",image:"turner.jpg",desc:"산업혁명의 시대상을 격정적 자연 풍경으로 표현. 영국 파운드 지폐에 초상.",design:"기술 변화가 미(美)를 위협하는 순간의 시각적 포착"},
-    {name:"쇼펜하우어",years:"1788~1860",role:"동서양 철학 융합",image:"schopenhauer.jpg",desc:"'의지와 표상으로서의 세계'. 불교·힌두교를 서양 철학에 최초 본격 융합.",design:"자포니즘, 아르누보 등 동서양 예술 융합의 사상적 토대"},
-    {name:"존 러스킨",years:"1819~1900",role:"미학 사상, 예술공예운동의 토대",image:"ruskin.jpg",desc:"산업화 시대에 미(美)의 가치를 강조. 터너를 옹호. 윌리엄 모리스에게 사상적 영향.",design:"예술공예운동 → 근대 디자인 운동의 사상적 토대"}
+  "industrial":[
+    {n:"터너",r:"빛과 증기의 화가",img:"turner.jpg",d:"폭풍 속 배에 몸을 묶고 바다를 바라보았다. 시대의 속도를 캔버스에 담았다.",dl:"기술이 세상을 바꾸는 순간을 포착한 화가"},
+    {n:"쇼펜하우어",r:"동서양 철학의 만남",img:"schopenhauer.jpg",d:"서양 철학에 처음으로 불교와 힌두교를 진지하게 끌어들였다.",dl:"자포니즘과 아르누보 — 동서양이 만나는 디자인의 출발점"},
+    {n:"존 러스킨",r:"미의 수호자",img:"ruskin.jpg",d:"대량생산이 아름다움을 파괴한다고 경고했다. 예술공예운동의 사상적 토대.",dl:"근대 디자인 운동의 토대를 놓은 사람"}
   ],
-  "nietzsche-freud": [
-    {name:"니체",years:"1844~1900",role:"망치를 든 철학자",image:"nietzsche.jpg",desc:"'신은 죽었다', 초인, 아모르파티. 디오니소스적 예술론으로 이성적 고전주의에 도전.",design:"파괴적 창조성 — 현대 디자인의 전위적 접근의 사상적 기반"},
-    {name:"바그너",years:"1813~1883",role:"총체예술(Gesamtkunstwerk)",image:"wagner.jpg",desc:"음악, 무대, 조명, 서사를 통합하는 종합 예술. 니벨룽의 반지 4부작.",design:"공간 디자인, UX, 브랜드 경험 디자인의 원형"},
-    {name:"프로이트",years:"1856~1939",role:"무의식의 발견",image:"freud.jpg",desc:"인류 3대 혁신(지동설, 진화론, 무의식). 이드/에고/슈퍼에고, 리비도.",design:"초현실주의 탄생, 감성 디자인·사용자 심리 연구의 이론적 뿌리"},
-    {name:"칼 융",years:"1875~1961",role:"페르소나, 분석심리학",image:"jung.jpg",desc:"프로이트와 결별 후 집단심리학 창시. 페르소나, 컴플렉스, 성격 유형론.",design:"UX 디자인 사용자 페르소나, MBTI 기반 사용자 연구의 직접적 기원"}
+  "nietzsche-freud":[
+    {n:"니체",r:"망치를 든 철학자",img:"nietzsche.jpg",d:"'신은 죽었다'고 선언하고 '초인'을 외쳤다. 광기가 예술의 본질이라 보았다.",dl:"관습을 부수는 디자인의 태도"},
+    {n:"바그너",r:"총체예술",img:"wagner.jpg",d:"음악, 무대, 조명, 서사를 하나로 엮었다. 극장까지 직접 지었다.",dl:"멀티미디어 경험 디자인의 원형"},
+    {n:"프로이트",r:"무의식의 발견",img:"freud.jpg",d:"의식은 빙산의 일각. 진짜 동력은 수면 아래에 있다.",dl:"초현실주의를 낳았고, 사용자 심리 연구의 이론적 뿌리가 되었다"},
+    {n:"칼 융",r:"페르소나, 분석심리학",img:"jung.jpg",d:"집단 무의식을 탐구했다. '페르소나'와 MBTI는 그의 유산이다.",dl:"UX 디자이너가 사용자 페르소나를 만들 때, 그 용어의 원래 주인"}
   ],
-  "modern-design": [
-    {name:"알퐁스 무하",years:"1860~1939",role:"아르누보의 대표",image:"mucha.jpg",desc:"곡선적 장식 양식, 포스터 아트의 정점. 블레이크의 곡선을 계승.",design:"아르누보의 평면성이 모더니즘으로 향하는 가교"},
-    {name:"피카소",years:"1881~1973",role:"입체파, 게르니카",image:"picasso.jpg",desc:"다시점·동시성의 시각적 표현. 게르니카(1937)로 전쟁의 참상을 고발.",design:"다시점 표현 — 현대 UI에서 동시적 정보 제공의 원류"},
-    {name:"몬드리안",years:"1872~1944",role:"차가운 추상, 데스틸",image:"mondrian.jpg",desc:"직선, 기하도형, 3원색으로 세계의 본질을 표현. '모든 예술은 몬드리안 전후로 나뉜다.'",design:"모던디자인의 조형적 기초 — 그리드 시스템, 색채 체계"},
-    {name:"말레비치",years:"1879~1935",role:"검은 사각형, 절대주의",image:"malevich.jpg",desc:"'검은 사각형'(1915) — 모든 것의 근원을 하나의 형태로. '예술이 아니라 철학이다.'",design:"미니멀리즘의 극점, 아르케 탐구의 시각적 결실"}
+  "modern-design":[
+    {n:"알퐁스 무하",r:"아르누보의 아이콘",img:"mucha.jpg",d:"파리의 밤을 수놓은 포스터들. 블레이크에서 이어진 곡선이 이름을 얻었다.",dl:"곡선에서 직선으로 — 모더니즘을 향한 가교"},
+    {n:"피카소",r:"입체파, 게르니카",img:"picasso.jpg",d:"사물을 여러 시점에서 동시에 보여주었다. 게르니카로 전쟁의 참상을 고발했다.",dl:"한 화면에 여러 관점을 담는 것은 현대 UI의 출발점이기도 하다"},
+    {n:"몬드리안",r:"직선과 원색",img:"mondrian.jpg",d:"나무를 점점 단순화시키다 직선과 세 가지 색만 남겼다.",dl:"그리드 시스템, 색채 체계 — 모던 디자인의 뼈대"},
+    {n:"말레비치",r:"검은 사각형",img:"malevich.jpg",d:"캔버스에 검은 사각형 하나. '이것은 예술이 아니라 철학이다.'",dl:"모든 것을 제거하고 남은 것 — 미니멀리즘의 극점"}
   ]
 };
 
-const EVENTS = [
-  // Ancient Greece
-  {year:"BC 624",title:"탈레스 출생",desc:"최초의 철학자, '만물의 근원은 물'",era:"ancient-greece",type:"person",image:"thales.jpg",
-   detail:"밀레토스 학파 창시. 자연현상을 이성으로 설명하려는 최초의 시도. 아르케(근원)라는 물음의 시작.",designLink:"디자인의 근본 질문 '본질이란 무엇인가'의 기원"},
-  {year:"BC 495",title:"엠페도클레스 — 4원소설",desc:"물, 불, 흙, 공기",era:"ancient-greece",type:"concept",image:"four_elements.jpg",
-   detail:"만물은 네 가지 근원 물질의 결합과 분리로 이루어진다.",designLink:"기본 조형 요소(점, 선, 면, 색)의 철학적 대응"},
-  {year:"BC 469",title:"소크라테스 출생",desc:"자연철학에서 인간철학으로 전환, 산파술",era:"ancient-greece",type:"person",image:"socrates.jpg",
-   detail:"'숙고하지 않는 삶은 살 가치가 없다.' 펠로폰네소스 전쟁 참전 경험이 인간 탐구의 계기.",designLink:"Think Different의 기원 — 끊임없이 사유하는 디자이너"},
-  {year:"BC 399",title:"소크라테스 사형",desc:"독배를 받아들이며 소신을 지킴",era:"ancient-greece",type:"event",image:"death_of_socrates.jpg",
-   detail:"정치 권력에 의해 사형 선고. 보석과 도주를 거부. 자크 루이 다비드가 이 장면을 그림(1787).",designLink:""},
-  {year:"BC 387",title:"아카데미아 설립",desc:"서양 최초의 고등교육기관 (플라톤)",era:"ancient-greece",type:"event",image:"",
-   detail:"체계적 학문 연구의 시작. 이데아론과 미메시스를 교육.",designLink:""},
-  {year:"1915",title:"말레비치 '검은 사각형'",desc:"아르케 탐구의 시각적 결실",era:"ancient-greece",type:"work",image:"black_square.jpg",
-   detail:"2주차 '근원(아르케)' 탐구가 20세기에 시각적으로 결실을 맺은 작품. '예술이 아니라 철학이다.'",designLink:"미니멀리즘의 극점 — 모든 것을 제거하고 남은 본질"},
-  {year:"1926",title:"칸딘스키 '점선면' 출간",desc:"조형의 근본 요소를 철학적으로 정리",era:"ancient-greece",type:"work",image:"kandinsky_book.jpg",
-   detail:"점은 '눈에 보이지 않는 본질'. 바우하우스에서 기초조형을 가르치며 저술.",designLink:"기초조형 교육의 체계화 — 모든 디자인 교육의 출발점"},
-
-  // Rome & Medieval
-  {year:"BC 106",title:"키케로 — Humanitas 창시",desc:"'인문학' 용어를 최초로 만든 인물",era:"rome-medieval",type:"person",image:"cicero.jpg",
-   detail:"로마의 변호사이자 정치가. 그리스 철학을 라틴어로 번역. 로렘 입섬이 그의 '최고선악론'에서 유래.",designLink:"디자인 인문학의 근원. 로렘 입섬은 레이아웃 작업의 필수 더미 텍스트"},
-  {year:"313",title:"밀라노 칙령 — 기독교 공인",desc:"카타콤베에서 바실리카로",era:"rome-medieval",type:"event",image:"",
-   detail:"기독교 공인 이후 지하(카타콤베)에서 지상(바실리카)으로 예배 공간 이동.",designLink:"종교 건축 → 공간 디자인의 원형"},
-  {year:"537",title:"하기아 소피아 완공",desc:"비잔틴 건축의 절정, 모자이크",era:"rome-medieval",type:"work",image:"hagia_sophia.jpg",
-   detail:"거대한 돔과 금빛 모자이크. 산 비탈레 성당의 모자이크가 클림트에게 영감.",designLink:"비잔틴 모자이크 → 클림트 → 장식 예술의 계보"},
-  {year:"~12C",title:"고딕 양식 전개",desc:"첨두아치, 스테인드글라스, 하늘로 솟는 성당",era:"rome-medieval",type:"concept",image:"gothic.jpg",
-   detail:"신에게 다가가려는 열망이 건축으로 표현. 밀라노 두오모, 샤르트르 대성당.",designLink:"바우하우스 선언문에 고딕 성당 판화 삽입 — 장인정신의 직접 계승"},
-  {year:"~1300",title:"오캄의 면도날",desc:"'단순함이 최고' → Less is More",era:"rome-medieval",type:"concept",image:"occam.jpg",
-   detail:"'실체를 필요 이상으로 중첩해서는 안 된다.' 미스 반데어로에, 디터 람스로 계승.",designLink:"모던 디자인 철학의 핵심 — 불필요한 것을 제거하라"},
-  {year:"1919",title:"바우하우스 선언문 — 고딕 성당 판화",desc:"중세 장인정신의 현대적 계승 선언",era:"rome-medieval",type:"event",image:"bauhaus_manifesto.jpg",
-   detail:"그로피우스가 선언문에 고딕 성당 판화를 삽입. 길드의 장인정신을 교육 이념으로.",designLink:"기초조형, 색채학, 레이아웃 — 현대 디자인 교육의 근본"},
-
-  // Renaissance
-  {year:"~1305",title:"지오토의 혁신",desc:"인간 감정과 푸른 하늘을 최초 도입",era:"renaissance",type:"work",image:"giotto.jpg",
-   detail:"금색 배경 대신 푸른 하늘, 무표정 대신 슬픔. 중세 회화의 틀을 깨고 르네상스를 예고.",designLink:"사용자 감정에 호소하는 디자인의 시작점"},
-  {year:"~1450",title:"구텐베르크 인쇄술",desc:"금속활자 — 지식 확산의 매체적 혁명",era:"renaissance",type:"event",image:"gutenberg.jpg",
-   detail:"최초 인쇄물: 성경과 키케로의 의무론. 지식의 대중화를 가능케 함.",designLink:"타이포그래피·출판 디자인의 기원"},
-  {year:"1485",title:"비너스의 탄생",desc:"보티첼리 — 종교에서 분리된 예술",era:"renaissance",type:"work",image:"birth_of_venus.jpg",
-   detail:"그리스 신화를 소재로 한 비종교적 회화. 메디치 가문 후원.",designLink:"예술/디자인의 자율성 확보"},
-  {year:"1503",title:"모나리자",desc:"다빈치 — 스푸마토 기법, 르네상스적 인간",era:"renaissance",type:"work",image:"mona_lisa.jpg",
-   detail:"화가, 과학자, 발명가, 해부학자를 겸한 통합적 천재.",designLink:"디자인 사고의 원형 — 통합적·다학제적 접근"},
-  {year:"1509",title:"아테네 학당",desc:"라파엘로 — 그리스 인문학 정신의 부활",era:"renaissance",type:"work",image:"school_of_athens.jpg",
-   detail:"플라톤(하늘/이상)과 아리스토텔레스(땅/현실)가 중앙에. 그리스 철학자 총집합.",designLink:"이성과 감성의 균형을 시각적으로 구현한 구도의 교본"},
-  {year:"1543",title:"코페르니쿠스 지동설",desc:"신 중심 세계관의 전복 시작",era:"renaissance",type:"concept",image:"copernicus.jpg",
-   detail:"이후 티코 브라헤 → 케플러 → 갈릴레오 → 뉴턴으로 이어지는 과학혁명의 시작.",designLink:"패러다임 전환 — 기존 관습을 의심하는 태도"},
-  {year:"1637",title:"데카르트 좌표",desc:"방법서설 — 인포그래픽의 기원",era:"renaissance",type:"concept",image:"descartes.jpg",
-   detail:"x축·y축. 윌리엄 플레이페어가 이를 활용해 최초의 통계 그래프 제작(1786).",designLink:"데이터 시각화의 기반, 픽셀·벡터 좌표 체계의 원류"},
-  {year:"1687",title:"뉴턴 프린키피아",desc:"만유인력 — 과학혁명의 집대성",era:"renaissance",type:"concept",image:"newton.jpg",
-   detail:"만유인력 법칙. 신 중심 세계관을 완전히 전복.",designLink:"블레이크가 뉴턴을 초라하게 그림 → 이성만으로는 부족하다"},
-
-  // Romanticism
-  {year:"1757",title:"윌리엄 블레이크 출생",desc:"시화(이미지+텍스트) — 그래픽 디자인의 선구자",era:"romanticism",type:"person",image:"blake.jpg",
-   detail:"독자적 세계관(유리젠) 창조. 유려한 곡선이 아르누보에, 몽환적 세계관이 초현실주의에 영향.",designLink:"잡스가 시집을 항상 소지. '한 알의 모래에서 세상을 보고, 내 손안에 무한을 쥐어라' → 아이폰"},
-  {year:"1789",title:"프랑스 혁명",desc:"자유·평등·박애 — 3대 혁명의 하나",era:"romanticism",type:"event",image:"french_revolution.jpg",
-   detail:"과학혁명·프랑스혁명·산업혁명 — 이 3대 혁명이 낭만주의 탄생의 배경.",designLink:"혁명적 변화가 새로운 시각 언어를 요구한다"},
-  {year:"1795",title:"블레이크 '뉴턴' / '태고의 날들'",desc:"과학적 세계관에 대한 낭만주의적 비판",era:"romanticism",type:"work",image:"blake_newton.jpg",
-   detail:"뉴턴을 벌거벗은 채 컴퍼스에만 집중하는 모습으로 묘사. 1998년 대영도서관 앞에 동상으로 제작.",designLink:"이성의 심장부에 감성의 상징 — 디자이너가 추구할 균형"},
-  {year:"1819",title:"메두사호의 뗏목",desc:"제리코 — 낭만주의 회화의 격정",era:"romanticism",type:"work",image:"raft_of_medusa.jpg",
-   detail:"실제 난파 사건을 바탕으로 인간의 절박함과 희망을 극적으로 표현.",designLink:"감정의 극대화를 통한 시각적 스토리텔링"},
-  {year:"1830",title:"민중을 이끄는 자유의 여신",desc:"드라크루아 — 혁명의 역동성",era:"romanticism",type:"work",image:"liberty_leading.jpg",
-   detail:"프랑스 7월 혁명. 자유의 여신(마리안느)이 삼색기를 들고 바리케이드를 넘는다.",designLink:"하나의 이미지가 시대정신을 대변하는 시각적 아이콘의 힘"},
-
-  // Industrial
-  {year:"1818",title:"의지와 표상으로서의 세계",desc:"쇼펜하우어 — 동서양 철학 최초 융합",era:"industrial",type:"concept",image:"schopenhauer.jpg",
-   detail:"세계의 본질은 '의지', 현실은 '표상'. 불교·힌두교를 서양 철학에 최초 본격 융합.",designLink:"자포니즘, 아르누보 등 동서양 예술 융합의 사상적 토대"},
-  {year:"1838",title:"터너 — 전함 테메레르",desc:"산업혁명에 의한 시대 교체의 상징",era:"industrial",type:"work",image:"temeraire.jpg",
-   detail:"트라팔가 해전의 영웅 전함이 증기선에 끌려 해체되러 가는 장면.",designLink:"기술 변화가 미(美)를 위협하는 순간의 시각적 포착"},
-  {year:"1851",title:"수정궁 박람회",desc:"세계 최초 엑스포 — 현대 디자인의 기점",era:"industrial",type:"event",image:"crystal_palace.jpg",
-   detail:"조셉 팩스톤이 철과 유리로 건설. 건축, 패키지, 사인, 브랜딩 등 디자인의 모든 분야가 본격 필요해진 최초의 대형 이벤트.",designLink:"대량생산 시대에 미의 가치를 지키는 것이 디자인의 본질적 과제"},
-  {year:"~1880s",title:"예술공예운동",desc:"러스킨 → 모리스 — 수공예 정신의 회복",era:"industrial",type:"concept",image:"arts_crafts.jpg",
-   detail:"산업화에 맞서 중세 수공예의 아름다움을 되살리려는 운동. 모리스의 켈름스콧 출판사.",designLink:"근대 디자인 운동의 직접적 시작점"},
-
-  // Nietzsche & Freud
-  {year:"1872",title:"비극의 탄생",desc:"니체 — 디오니소스적 vs 아폴론적 예술론",era:"nietzsche-freud",type:"work",image:"",
-   detail:"바그너에게 헌정. 파괴적·창조적·비이성적 디오니소스 예술론을 주창.",designLink:"실험적·도발적 디자인 접근의 사상적 기반"},
-  {year:"1876",title:"니벨룽의 반지 초연",desc:"바그너 — 총체예술의 정점",era:"nietzsche-freud",type:"work",image:"wagner_ring.jpg",
-   detail:"음악, 무대, 조명, 연기, 서사를 아우르는 4부작 오페라. 바이로이트 축제극장.",designLink:"멀티미디어 경험 디자인의 원형"},
-  {year:"1885",title:"차라투스트라는 이렇게 말했다",desc:"니체 사상의 집대성 — 초인, 영원회귀",era:"nietzsche-freud",type:"work",image:"zarathustra.jpg",
-   detail:"리하르트 슈트라우스가 교향시로 작곡 → 큐브릭 '2001 스페이스 오디세이' 도입부.",designLink:"자기 정체성을 스스로 만드는 디자이너의 태도"},
-  {year:"1899",title:"꿈의 해석",desc:"프로이트 — 무의식 이론의 체계적 정립",era:"nietzsche-freud",type:"work",image:"",
-   detail:"꿈은 무의식의 소원 충족. 억압된 리비도의 승화 방식 중 하나가 예술.",designLink:"디자인은 인간 내면의 욕구와 감정을 표현하는 매체"},
-  {year:"1913",title:"칼 융 — 분석심리학 창시",desc:"페르소나, MBTI의 기원",era:"nietzsche-freud",type:"event",image:"jung.jpg",
-   detail:"프로이트와 결별 후 집단심리학 창시. 페르소나, 컴플렉스, 성격 유형론.",designLink:"UX 디자인의 사용자 페르소나, MBTI 사용자 연구의 직접적 기원"},
-
-  // Modern Design
-  {year:"1889",title:"별이 빛나는 밤",desc:"고흐 — 후기인상파의 곡선적 생명력",era:"modern-design",type:"work",image:"starry_night.jpg",
-   detail:"소용돌이치는 별과 하늘. 내면의 격정을 시각화.",designLink:"주관적 감정의 시각화 — 표현주의, 감성 디자인의 선구"},
-  {year:"~1890s",title:"아르누보 전성기",desc:"알퐁스 무하 — 곡선적 장식 양식",era:"modern-design",type:"concept",image:"mucha.jpg",
-   detail:"인상파, 예술공예운동, 자포니즘의 영향. 블레이크의 곡선을 계승. 약 20년간 유행.",designLink:"아르누보의 평면성이 모더니즘으로 향하는 가교"},
-  {year:"1905",title:"야수파 · 상대성이론",desc:"마티스의 색채 혁명 / 아인슈타인의 시공간 재정의",era:"modern-design",type:"event",image:"matisse.jpg",
-   detail:"야수파: 강렬한 색채와 형태의 파괴. 상대성이론: 시간과 공간은 절대적이지 않다.",designLink:"마티스의 종이 오려붙이기 → 단순한 형태 = 모던디자인의 조형 원리"},
-  {year:"1907",title:"입체파 탄생",desc:"피카소 — 다시점·동시성",era:"modern-design",type:"concept",image:"picasso_cubism.jpg",
-   detail:"사물을 여러 시점에서 동시에 표현. 베르그송의 시간 철학이 기반.",designLink:"다시점 — 현대 UI에서 동시적 정보 제공의 원류"},
-  {year:"1909",title:"미래파 선언",desc:"마리네티 — 속도 찬미, 실험적 타이포그래피",era:"modern-design",type:"event",image:"futurism.jpg",
-   detail:"르피가로지에 게재. 전쟁 소음을 문자로 표현하는 실험적 타이포그래피.",designLink:"실험적 타이포그래피, 모션그래픽의 원류"},
-  {year:"1917",title:"데스틸 · 구성주의",desc:"몬드리안 + 러시아 혁명",era:"modern-design",type:"concept",image:"mondrian.jpg",
-   detail:"몬드리안: 직선, 기하도형, 3원색. 구성주의: 예술을 사회 변혁의 도구로.",designLink:"모던디자인의 조형적 기초 — 그리드, 색채 체계"},
-  {year:"1919",title:"바우하우스 설립",desc:"2,500년 인문학의 종합 — 디자인 교육의 탄생",era:"modern-design",type:"event",image:"bauhaus.jpg",
-   detail:"오캄(단순함) + 길드(장인정신) + 구성주의/데스틸(조형). 고딕 성당 판화가 선언문에.",designLink:"기초조형, 색채학, 레이아웃 — 현대 디자인 교육의 근본"},
-  {year:"1937",title:"게르니카",desc:"피카소 — 나치 폭격에 대한 항의",era:"modern-design",type:"work",image:"guernica.jpg",
-   detail:"스페인 내전 중 나치의 게르니카 마을 폭격. 3.5m x 7.8m 대작.",designLink:"디자인/예술이 사회적 메시지를 전달하는 강력한 매체"}
+const V=[
+  {yr:"BC 624",t:"탈레스 출생",d:"최초의 철학자. 만물의 근원을 '물'이라 했다",era:"ancient-greece",tp:"person",img:"thales.jpg",dt:"밀레토스 해안가에서 시작된 물음 — '이 세상은 무엇으로 이루어져 있는가?' 신화 대신 이성으로 세계를 설명하려 한 최초의 시도였다.",dl:"디자인이 던져야 할 첫 질문, '이것의 본질은 무엇인가'의 기원"},
+  {yr:"BC 495",t:"엠페도클레스 — 4원소설",d:"물, 불, 흙, 공기. 세계를 이루는 네 가지 뿌리",era:"ancient-greece",tp:"concept",img:"four_elements.jpg",dt:"하나가 아니라 넷이라고 했다. 원소들의 결합과 분리가 세상의 모든 변화를 만든다는 발상은 조형의 기본 요소를 떠올리게 한다.",dl:"기본 요소의 조합으로 세계를 구성한다는 사고 — 디자인 조형론의 먼 원형"},
+  {yr:"BC 469",t:"소크라테스 출생",d:"자연에서 인간으로, 철학의 방향을 틀다",era:"ancient-greece",tp:"person",img:"socrates.jpg",dt:"전쟁터에서 돌아온 뒤 자연이 아닌 인간을 물었다. '숙고하지 않는 삶은 살 가치가 없다.' 사형 선고에도 독배를 들며 끝까지 소신을 지켰다.",dl:"끊임없이 묻는 자세가 Think Different의 원형"},
+  {yr:"BC 399",t:"소크라테스의 죽음",d:"독배를 받아들이며 서양 철학의 분기점을 만들다",era:"ancient-greece",tp:"event",img:"death_of_socrates.jpg",dt:"다비드가 이 장면을 그렸다(1787). 제자들은 울고, 소크라테스는 손가락으로 하늘을 가리키며 담담히 독배에 손을 뻗는다.",dl:""},
+  {yr:"BC 387",t:"아카데미아 설립",d:"플라톤이 세운 서양 최초의 대학",era:"ancient-greece",tp:"event",img:"",dt:"이데아론과 미메시스를 가르쳤다. 입구에는 '기하학을 모르는 자 들어오지 마라'라고 써 있었다.",dl:""},
+  {yr:"1915",t:"말레비치, 검은 사각형",d:"2,500년 전 '근원'의 물음이 캔버스 위에서 결실을 맺다",era:"ancient-greece",tp:"work",img:"black_square.jpg",dt:"흰 캔버스에 검은 사각형 하나. '이것은 예술이 아니라 철학이다.' 탈레스의 아르케 탐구가 20세기에 시각적으로 완성된 순간.",dl:"모든 것을 제거하고 남은 하나 — 미니멀리즘의 극점"},
+  {yr:"1926",t:"칸딘스키, 점선면 출간",d:"기하학의 점은 '눈에 보이지 않는 본질'이라 했다",era:"ancient-greece",tp:"work",img:"kandinsky_book.jpg",dt:"바우하우스 교수로서 조형의 근본을 정리한 저서. 점은 침묵, 선은 운동, 면은 세계.",dl:"모든 디자인 학교의 첫 수업은 여기서 시작된다"},
+  {yr:"BC 106",t:"키케로 — Humanitas 창시",d:"'인문학'이라는 말을 처음 만든 사람",era:"rome-medieval",tp:"person",img:"cicero.jpg",dt:"그리스의 지혜를 라틴어로 옮기면서 Humanitas라는 이름을 붙였다. 디자이너라면 한번쯤 써봤을 로렘 입섬도 그의 문장에서 왔다.",dl:"디자인 인문학이라는 이 과목의 뿌리가 되는 단어"},
+  {yr:"313",t:"밀라노 칙령",d:"기독교 공인 — 지하에서 지상으로",era:"rome-medieval",tp:"event",img:"",dt:"카타콤베(지하 묘지)에서 바실리카(지상 교회)로. 신에게 다가가려는 열망이 건축으로 솟아오르기 시작했다.",dl:"종교 건축 — 공간 디자인의 원형"},
+  {yr:"537",t:"하기아 소피아 완공",d:"비잔틴 건축의 절정. 금빛 모자이크가 클림트에게 닿다",era:"rome-medieval",tp:"work",img:"hagia_sophia.jpg",dt:"거대한 돔 아래 금빛 모자이크가 빛난다. 1,400년 뒤 이 빛은 클림트의 캔버스에 다시 나타난다.",dl:"비잔틴 모자이크에서 클림트까지 — 장식 예술의 계보"},
+  {yr:"~12C",t:"고딕 양식 전개",d:"하늘을 향해 솟구치는 성당, 빛이 건축이 되다",era:"rome-medieval",tp:"concept",img:"gothic.jpg",dt:"첨두아치, 플라잉 버트레스, 스테인드글라스. 벽을 얇게 만들어 빛을 들이는 구조적 혁신이었다.",dl:"1919년 바우하우스 선언문에 고딕 성당 판화가 들어간다"},
+  {yr:"~1300",t:"오캄의 면도날",d:"불필요한 것을 덜어내라 — 700년 뒤 디자인의 원칙이 되다",era:"rome-medieval",tp:"concept",img:"occam.jpg",dt:"수도사 윌리엄 오캄이 말했다. '실체를 필요 이상으로 중첩해서는 안 된다.' 미스 반데어로에의 Less is More, 디터 람스의 Less But Better가 여기서 왔다.",dl:"모던 디자인의 핵심 — 단순함은 최고의 정교함이다"},
+  {yr:"1919",t:"바우하우스 선언문에 고딕 성당 판화",d:"중세 장인정신을 현대 교육으로 소환하다",era:"rome-medieval",tp:"event",img:"bauhaus_manifesto.jpg",dt:"그로피우스가 선언문에 고딕 성당 판화를 삽입했다. 뜻을 같이하는 장인들이 모여 더 나은 세상을 함께 만들자는 선언이었다.",dl:"기초조형, 색채학, 레이아웃 — 현대 디자인 교육의 근본"},
+  {yr:"~1305",t:"지오토의 혁신",d:"금빛 배경 대신 푸른 하늘을, 무표정 대신 눈물을 그리다",era:"renaissance",tp:"work",img:"giotto.jpg",dt:"중세 회화의 관습을 깨뜨린 첫 번째 균열. 인간의 감정이 처음으로 캔버스에 나타났다. 르네상스를 예고하는 신호탄.",dl:"감정에 호소하는 디자인의 시작점"},
+  {yr:"~1450",t:"구텐베르크 인쇄술",d:"한 권의 책을 베끼는 데 1년이 걸리던 시대가 끝나다",era:"renaissance",tp:"event",img:"gutenberg.jpg",dt:"금속활자로 성경을 찍어냈다. 지식은 수도원의 벽을 넘어 거리로, 대학으로, 시장으로 퍼져나갔다.",dl:"타이포그래피와 출판 디자인은 여기서 태어났다"},
+  {yr:"1485",t:"비너스의 탄생",d:"보티첼리 — 신이 아닌 신화를 그리다",era:"renaissance",tp:"work",img:"birth_of_venus.jpg",dt:"메디치 가문의 후원으로 그리스 신화를 소재로 한 비종교적 회화가 등장했다. 예술이 교회의 품을 벗어난 순간.",dl:"클라이언트를 위하되 독립적으로 — 디자이너의 자율성"},
+  {yr:"1503",t:"모나리자",d:"다빈치 — 경계를 넘나드는 천재의 상징",era:"renaissance",tp:"work",img:"mona_lisa.jpg",dt:"스푸마토 기법으로 윤곽선을 녹여냈다. 다빈치는 이 그림을 평생 갖고 다녔다.",dl:"분야의 벽을 허무는 통합적 시선"},
+  {yr:"1509",t:"아테네 학당",d:"라파엘로 — 하늘을 가리키는 플라톤, 땅을 가리키는 아리스토텔레스",era:"renaissance",tp:"work",img:"school_of_athens.jpg",dt:"이상(플라톤)과 현실(아리스토텔레스)이 나란히 서 있다. 이 구도가 강의 전체를 관통하는 대립 — 이성과 감성의 균형.",dl:"균형 잡힌 구도의 교본"},
+  {yr:"1543",t:"코페르니쿠스 지동설",d:"지구가 중심이 아니라는 발상. 세계관이 뒤집히다",era:"renaissance",tp:"concept",img:"copernicus.jpg",dt:"이후 브라헤, 케플러, 갈릴레오, 뉴턴으로 이어지며 과학혁명이 완성된다.",dl:"기존의 관습을 의심하는 태도 — 디자인 혁신의 첫걸음"},
+  {yr:"1637",t:"데카르트 좌표",d:"x축과 y축 — 단순한 발상이 세계를 바꾸다",era:"renaissance",tp:"concept",img:"descartes.jpg",dt:"방법서설에서 제시한 좌표 체계. 수학과 기하학이 만났고, 훗날 플레이페어가 최초의 통계 그래프를 만든다(1786).",dl:"인포그래픽의 수학적 기반. 모니터 위의 모든 픽셀은 이 좌표 위에 있다"},
+  {yr:"1687",t:"뉴턴 프린키피아",d:"만유인력으로 과학혁명을 마무리짓다",era:"renaissance",tp:"concept",img:"newton.jpg",dt:"사과가 떨어지는 이유를 수학으로 설명했다. 신이 아닌 법칙이 우주를 움직인다.",dl:"블레이크는 뉴턴을 초라하게 그렸다. 이성만으로는 부족하다는 경고"},
+  {yr:"1757",t:"윌리엄 블레이크 출생",d:"직접 쓰고, 직접 그리고, 직접 새긴 사람",era:"romanticism",tp:"person",img:"blake.jpg",dt:"시와 그림이 하나인 시화를 만들었다. 독자적 신화 세계(유리젠)를 창조하고, '과학적 사고는 마음의 수갑이다'라고 선언했다.",dl:"잡스가 늘 갖고 다닌 시집의 주인. '한 알의 모래에서 세상을 보고, 내 손안에 무한을 쥐어라'"},
+  {yr:"1789",t:"프랑스 혁명",d:"자유, 평등, 박애 — 낡은 세계가 무너지다",era:"romanticism",tp:"event",img:"french_revolution.jpg",dt:"과학혁명, 프랑스혁명, 산업혁명. 이 세 가지 혁명이 낭만주의라는 파도를 일으켰다.",dl:"혁명적 변화는 새로운 시각 언어를 요구한다"},
+  {yr:"1795",t:"블레이크, 뉴턴 / 태고의 날들",d:"과학의 시대에 감성의 깃발을 세우다",era:"romanticism",tp:"work",img:"blake_newton.jpg",dt:"뉴턴을 벌거벗은 채 컴퍼스에만 몰두하는 모습으로 그렸다. 1998년 대영도서관 앞에 이 그림의 동상이 세워졌다.",dl:"이성의 심장부에 감성의 상징을 — 디자이너가 추구할 균형"},
+  {yr:"1819",t:"메두사호의 뗏목",d:"제리코 — 절박한 감정이 캔버스를 뒤덮다",era:"romanticism",tp:"work",img:"raft_of_medusa.jpg",dt:"실제 난파 사건을 바탕으로 한 대작. 희망과 절망이 한 화면에 공존한다.",dl:"감정의 극대화를 통한 시각적 스토리텔링"},
+  {yr:"1830",t:"민중을 이끄는 자유의 여신",d:"드라크루아 — 한 장의 그림이 시대를 대변하다",era:"romanticism",tp:"work",img:"liberty_leading.jpg",dt:"프랑스 7월 혁명. 삼색기를 든 자유의 여신(마리안느)은 프랑스의 상징이 되었다.",dl:"하나의 이미지가 시대정신을 담는다 — 시각적 아이콘의 힘"},
+  {yr:"1818",t:"의지와 표상으로서의 세계",d:"쇼펜하우어 — 동양과 서양이 처음 만나다",era:"industrial",tp:"concept",img:"schopenhauer.jpg",dt:"세계의 본질은 '의지'이고 우리가 보는 것은 '표상'에 불과하다. 불교의 해탈, 힌두교의 윤회를 서양 철학에 처음으로 본격 끌어들였다.",dl:"자포니즘과 아르누보 — 동서양이 만나는 디자인의 출발점"},
+  {yr:"1838",t:"터너, 전함 테메레르",d:"영웅의 배가 증기선에 끌려가다. 시대가 바뀌는 순간",era:"industrial",tp:"work",img:"temeraire.jpg",dt:"트라팔가 해전의 영웅 범선이 증기 예인선에 끌려 해체장으로 향한다. 석양 아래 두 시대가 스쳐 지나간다.",dl:"기술이 세계를 바꾸는 순간을 시각적으로 포착한 작품"},
+  {yr:"1851",t:"수정궁 박람회",d:"세계 최초 엑스포 — 디자인이라는 말이 필요해진 순간",era:"industrial",tp:"event",img:"crystal_palace.jpg",dt:"철과 유리로 지은 건물에 세계의 제품이 모였다. 건축, 패키지, 사인, 브랜딩 — 대량생산 시대에 '보기 좋게 만드는 것'이 별도의 직업이 되어야 한다는 인식이 생겨났다.",dl:"대량생산 앞에서 미의 가치를 지키는 것 — 디자인의 본질적 과제"},
+  {yr:"~1880s",t:"예술공예운동",d:"러스킨의 사상이 모리스의 손을 거쳐 운동이 되다",era:"industrial",tp:"concept",img:"arts_crafts.jpg",dt:"기계가 만든 것은 못생겼다. 중세 수공예의 아름다움을 되살리자. 윌리엄 모리스는 켈름스콧 출판사를 세워 직접 아름다운 책을 만들었다.",dl:"근대 디자인 운동의 직접적 시작점"},
+  {yr:"1872",t:"비극의 탄생",d:"니체 — 광기와 파괴 속에서 예술의 본질을 찾다",era:"nietzsche-freud",tp:"work",img:"",dt:"바그너에게 헌정한 처녀작. 질서의 아폴론이 아니라 광기의 디오니소스가 예술의 진짜 동력이라 했다.",dl:"관습을 파괴하는 실험적 디자인의 사상적 근거"},
+  {yr:"1876",t:"니벨룽의 반지 초연",d:"바그너 — 음악, 무대, 조명, 서사를 하나로 엮다",era:"nietzsche-freud",tp:"work",img:"wagner_ring.jpg",dt:"이 오페라를 위해 바이로이트에 극장까지 지었다. 4일에 걸쳐 상연되는 총체 예술의 극치.",dl:"공간, 소리, 빛, 이야기 — 멀티미디어 경험 디자인의 원형"},
+  {yr:"1885",t:"차라투스트라는 이렇게 말했다",d:"초인, 영원회귀, 아모르파티 — 니체 사상의 정점",era:"nietzsche-freud",tp:"work",img:"zarathustra.jpg",dt:"삶의 고통은 반복되지만, 그 고통을 사랑하라(아모르파티). 리하르트 슈트라우스가 교향시로 만들었고, 큐브릭이 '2001 스페이스 오디세이' 첫 장면에 넣었다.",dl:"자기 정체성을 스스로 만드는 디자이너의 태도"},
+  {yr:"1899",t:"꿈의 해석",d:"프로이트 — 의식 아래 거대한 세계가 있다",era:"nietzsche-freud",tp:"work",img:"",dt:"빙산의 일각만 물 위에 보인다. 인간을 움직이는 것은 이성이 아니라 무의식이다. 억눌린 에너지(리비도)가 승화되는 방식 중 하나가 예술이다.",dl:"인간의 내면을 이해하는 것 — 감성 디자인과 사용자 연구의 출발"},
+  {yr:"1913",t:"칼 융, 분석심리학 창시",d:"페르소나라는 단어가 심리학에서 디자인으로 건너오다",era:"nietzsche-freud",tp:"event",img:"jung.jpg",dt:"프로이트와 결별한 뒤 집단 무의식을 탐구했다. 사람마다 쓰는 가면(페르소나)과 성격 유형(MBTI)이라는 도구를 남겼다.",dl:"UX 디자이너가 사용자 페르소나를 설정할 때, 그 용어와 개념은 바로 여기서 왔다"},
+  {yr:"1889",t:"별이 빛나는 밤",d:"고흐 — 밤하늘이 소용돌이친다. 내면이 폭발하다",era:"modern-design",tp:"work",img:"starry_night.jpg",dt:"생레미 요양원의 창문 너머로 본 밤하늘. 눈에 보이는 것이 아니라 느끼는 것을 그렸다.",dl:"주관적 감정의 시각화 — 표현주의와 감성 디자인의 문을 열다"},
+  {yr:"~1890s",t:"아르누보 전성기",d:"곡선의 시대. 블레이크에서 무하까지, 자연의 선이 예술이 되다",era:"modern-design",tp:"concept",img:"mucha.jpg",dt:"인상파, 예술공예운동, 자포니즘이 만나 약 20년간 유럽을 휩쓸었다. 블레이크의 유려한 곡선이 무하의 포스터에서 부활했다.",dl:"평면적이고 인위적인 곡선 — 모더니즘으로 가는 가교"},
+  {yr:"1905",t:"야수파 등장, 상대성이론",d:"같은 해에 색채가 해방되고 시공간이 뒤틀리다",era:"modern-design",tp:"event",img:"matisse.jpg",dt:"마티스가 색을 형태에서 해방시키고, 아인슈타인이 시간과 공간이 절대적이지 않다고 증명한 해.",dl:"마티스의 종이 오려붙이기 — 단순한 형태와 기본 색이 곧 모던디자인"},
+  {yr:"1907",t:"입체파 탄생",d:"한 번에 앞과 옆과 위를 본다 — 시점의 혁명",era:"modern-design",tp:"concept",img:"picasso_cubism.jpg",dt:"피카소와 브라크가 시작했다. 베르그송의 시간 철학이 배경에 있다. 사물을 해체하고 재조립한다.",dl:"한 화면에 여러 관점을 담는 것 — 현대 UI의 먼 조상"},
+  {yr:"1909",t:"미래파 선언",d:"마리네티 — 속도를 사랑하라, 글자가 춤을 추다",era:"modern-design",tp:"event",img:"futurism.jpg",dt:"전쟁의 소음을 활자 크기와 배치로 표현했다. 글자가 일렬로 서 있어야 한다는 법은 없다.",dl:"실험적 타이포그래피의 원류"},
+  {yr:"1917",t:"데스틸, 구성주의",d:"직선과 원색. 예술은 세상을 바꾸는 도구다",era:"modern-design",tp:"concept",img:"mondrian.jpg",dt:"몬드리안은 나무를 그리다가 결국 직선과 색면만 남겼다. 러시아에서는 구성주의가 예술을 혁명의 무기로 삼았다.",dl:"그리드, 색채 체계, 레이아웃 — 모던디자인의 뼈대"},
+  {yr:"1919",t:"바우하우스 설립",d:"오캄의 단순함, 길드의 장인정신, 구성주의의 조형이 하나로",era:"modern-design",tp:"event",img:"bauhaus.jpg",dt:"그리스에서 시작된 근원의 물음이, 로마의 인문학을 거쳐, 중세의 장인정신을 품고, 르네상스의 원근법을 익히고, 낭만주의의 감성을 머금은 채 — 여기에 도착했다.",dl:"현대 디자인 교육의 모든 것은 이 학교에서 시작되었다"},
+  {yr:"1937",t:"게르니카",d:"피카소 — 한 장의 그림이 전쟁을 고발하다",era:"modern-design",tp:"work",img:"guernica.jpg",dt:"스페인 내전 중 나치가 게르니카 마을을 폭격했다. 피카소는 3.5m x 7.8m 캔버스에 분노를 쏟아부었다.",dl:"디자인과 예술이 사회적 메시지를 전달하는 가장 강력한 매체임을 증명"}
 ];
 
-// ── RENDER ──
-function render() {
-  // Nav
-  const navInner = document.getElementById('eraNavInner');
-  navInner.innerHTML = ERAS.map(e =>
-    `<div class="era-tab" data-era="${e.id}" style="--tab-color:${e.color}">${e.name}</div>`
-  ).join('');
-
-  // Content
-  const content = document.getElementById('timelineContent');
-  content.innerHTML = ERAS.map(era => {
-    const eraEvents = EVENTS.filter(ev => ev.era === era.id);
-    const eraPersons = PERSONS[era.id] || [];
-    const typeLabels = {person:'인물',work:'작품',event:'사건',concept:'개념'};
-
-    return `
-      <section class="era-section" id="${era.id}" style="--era-color:${era.color}; --era-color-rgb:${era.rgb}">
-        <div class="era-header fade-in">
-          <div class="era-period">${era.period}</div>
-          <h2 style="color:${era.color}">${era.name}</h2>
-          <p class="era-desc">${era.description}</p>
-          <div class="era-keywords">
-            ${era.keywords.map(k=>`<span class="era-keyword" style="border-color:${era.color}30;color:${era.color}">${k}</span>`).join('')}
-          </div>
-        </div>
-
-        ${eraPersons.length ? `
-        <div class="person-cards-row fade-in">
-          ${eraPersons.map(p=>`
-            <div class="person-card">
-              <div class="person-card-img">
-                ${p.image
-                  ? `<img src="images/${p.image}" alt="${p.name}" onerror="this.parentElement.innerHTML='<div class=placeholder-icon>&#9679;</div>'">`
-                  : '<div class="placeholder-icon">&#9679;</div>'}
-              </div>
-              <div class="person-card-body">
-                <div class="person-card-name">${p.name}</div>
-                <div class="person-card-role">${p.role}</div>
-                <div class="person-card-years">${p.years}</div>
-              </div>
-              <div class="person-tooltip">
-                <div class="person-tooltip-title">${p.name}</div>
-                <div class="person-tooltip-desc">${p.desc}</div>
-                ${p.design ? `<div class="person-tooltip-design">${p.design}</div>` : ''}
-              </div>
-            </div>
-          `).join('')}
-        </div>` : ''}
-
-        <div class="timeline-track">
-          ${eraEvents.map(ev=>`
-            <div class="event-card fade-in" style="--era-color:${era.color};--era-color-rgb:${era.rgb}" onclick="toggleCard(this)">
-              <div class="event-card-header">
-                <span class="event-year">${ev.year}</span>
-                <span class="event-title">${ev.title}<span class="event-badge ${ev.type}">${typeLabels[ev.type]}</span></span>
-              </div>
-              <div class="event-desc">${ev.desc}</div>
-              <div class="event-detail">
-                <div class="event-detail-inner">
-                  <div class="event-image">
-                    ${ev.image
-                      ? `<img src="images/${ev.image}" alt="${ev.title}" onerror="this.parentElement.innerHTML='<div class=ph>${ev.title}</div>'">`
-                      : `<div class="ph">${ev.title}</div>`}
-                  </div>
-                  <div class="event-detail-text">
-                    ${ev.detail||''}
-                    ${ev.designLink?`<div class="design-link"><div class="dl-label">디자인과의 연결</div>${ev.designLink}</div>`:''}
-                  </div>
-                </div>
-              </div>
-            </div>
-          `).join('')}
-        </div>
-
-        ${era.quote ? `
-        <div class="prof-quote fade-in">
-          "${era.quote}"
-          <span class="source">${era.quoteSource}</span>
-        </div>` : ''}
-      </section>
-    `;
+function init(){
+  document.getElementById('navIn').innerHTML=E.map(e=>`<div class="era-tab" data-e="${e.id}" style="--tc:${e.c}">${e.name}</div>`).join('');
+  const tl={person:'인물',work:'작품',event:'사건',concept:'개념'};
+  document.getElementById('tlCol').innerHTML=E.map(era=>{
+    const evs=V.filter(v=>v.era===era.id),ps=P[era.id]||[];
+    return `<section class="era-section" id="${era.id}">
+      <div class="era-header fi"><div class="period">${era.period}</div><h2 style="color:${era.c}">${era.name}</h2><p class="desc">${era.desc}</p>
+      <div class="era-keywords">${era.kw.map(k=>`<span class="era-kw" style="border-color:${era.c}25;color:${era.c}">${k}</span>`).join('')}</div></div>
+      ${ps.length?`<div class="person-row fi">${ps.map(p=>`<div class="p-card glass"><div class="p-card-img">${p.img?`<img src="images/${p.img}" alt="${p.n}" onerror="this.parentElement.innerHTML='<div class=phd>&#9679;</div>'">`:'<div class="phd">&#9679;</div>'}</div><div class="p-card-body"><div class="p-card-name">${p.n}</div><div class="p-card-role">${p.r}</div></div></div>`).join('')}</div>`:''}
+      <div class="tl-track" style="--ec:${era.c}">${evs.map((ev,i)=>`<div class="ev glass fi" data-i="${era.id}-${i}" onmouseenter="showSP(this)" onmouseleave="qHide(this)" onclick="togMob(this)">
+        <div class="ev-head"><span class="ev-year">${ev.yr}</span><span class="ev-title">${ev.t}<span class="ev-badge ${ev.tp}">${tl[ev.tp]}</span></span></div>
+        <div class="ev-desc">${ev.d}</div>
+        <div class="ev-mob"><div class="ev-mob-inner"><div class="ev-mob-img">${ev.img?`<img src="images/${ev.img}" alt="${ev.t}" onerror="this.parentElement.innerHTML='<div class=ph>${ev.t}</div>'">`:`<div class="ph">${ev.t}</div>`}</div><div class="ev-mob-text">${ev.dt||''}</div>${ev.dl?`<div class="ev-mob-dl"><div style="font-size:0.65rem;color:var(--tw);letter-spacing:0.1em;margin-bottom:0.2rem">디자인과의 연결</div>${ev.dl}</div>`:''}</div></div>
+      </div>`).join('')}</div>
+      ${era.q?`<div class="quote-block fi">${era.q}<span class="src">${era.qs}</span></div>`:''}
+    </section>`;
   }).join('');
-
-  setupNav();
-  setupFadeIn();
+  sNav();sFI();
 }
 
-function toggleCard(card) {
-  const was = card.classList.contains('expanded');
-  document.querySelectorAll('.event-card.expanded').forEach(c=>c.classList.remove('expanded'));
-  if(!was) card.classList.add('expanded');
+let spT=null,aEv=null;const sp=document.getElementById('spI'),isMob=()=>window.innerWidth<=1024;
+function showSP(el){if(isMob())return;clearTimeout(spT);if(aEv)aEv.classList.remove('active');el.classList.add('active');aEv=el;
+  const[eId,i]=el.dataset.i.split('-'),evs=V.filter(v=>v.era===eId),ev=evs[+i],era=E.find(e=>e.id===eId);if(!ev)return;
+  sp.innerHTML=`<div class="sp-era" style="color:${era.c}">${era.name}</div><div class="sp-year" style="color:${era.c}">${ev.yr}</div><div class="sp-title">${ev.t}</div>
+    <div class="sp-image">${ev.img?`<img src="images/${ev.img}" alt="${ev.t}" onerror="this.parentElement.innerHTML='<div class=ph>${ev.t}</div>'">`:`<div class="ph">${ev.t}</div>`}</div>
+    <div class="sp-body">${ev.dt||''}</div>${ev.dl?`<div class="sp-dl"><div class="lb">디자인과의 연결</div>${ev.dl}</div>`:''}`;
+  sp.classList.add('vis');
 }
-
-function setupNav() {
-  const tabs = document.querySelectorAll('.era-tab');
-  const sections = document.querySelectorAll('.era-section');
-  tabs.forEach(tab=>{
-    tab.addEventListener('click',()=>{
-      const t = document.getElementById(tab.dataset.era);
-      if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
-    });
-  });
-  const obs = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        tabs.forEach(t=>t.classList.remove('active'));
-        const a = document.querySelector(`[data-era="${entry.target.id}"]`);
-        if(a) a.classList.add('active');
-      }
-    });
-  },{threshold:0.2,rootMargin:'-60px 0px 0px 0px'});
-  sections.forEach(s=>obs.observe(s));
-}
-
-function setupFadeIn() {
-  const obs = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
-  },{threshold:0.08});
-  document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
-}
-
-document.addEventListener('DOMContentLoaded', render);
+function qHide(){spT=setTimeout(()=>{sp.classList.remove('vis');if(aEv){aEv.classList.remove('active');aEv=null}},200)}
+document.getElementById('sp').addEventListener('mouseenter',()=>clearTimeout(spT));
+document.getElementById('sp').addEventListener('mouseleave',qHide);
+function togMob(el){if(!isMob())return;const w=el.classList.contains('active');document.querySelectorAll('.ev.active').forEach(e=>e.classList.remove('active'));if(!w)el.classList.add('active')}
+function sNav(){const ts=document.querySelectorAll('.era-tab'),ss=document.querySelectorAll('.era-section');
+  ts.forEach(t=>t.addEventListener('click',()=>{const el=document.getElementById(t.dataset.e);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})}));
+  new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){ts.forEach(t=>t.classList.remove('active'));const a=document.querySelector(`[data-e="${e.target.id}"]`);if(a)a.classList.add('active')}})},{threshold:0.15,rootMargin:'-60px 0px 0px 0px'}).observe&&ss.forEach(s=>new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){ts.forEach(t=>t.classList.remove('active'));const a=document.querySelector(`[data-e="${e.target.id}"]`);if(a)a.classList.add('active')}})},{threshold:0.15,rootMargin:'-60px 0px 0px 0px'}).observe(s))}
+function sFI(){const o=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')})},{threshold:0.06});document.querySelectorAll('.fi').forEach(el=>o.observe(el))}
+document.addEventListener('DOMContentLoaded',init);
 </script>
 </body>
 </html>
