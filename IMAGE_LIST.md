@@ -208,3 +208,16 @@
 | `zarathustra.jpg` | 니체 초상 (1882) | https://commons.wikimedia.org/wiki/File:Nietzsche1882.jpg |
 
 > Commons 페이지에서 이미지를 클릭 → 원본 해상도로 열기 → 우클릭 → 이미지를 다른 이름으로 저장 → 위 파일명으로 저장
+
+---
+
+## 이미지 미지정 이벤트 4개 — 추가 다운로드
+
+코드에서 `img:""`로 비어있는 이벤트. 이미지를 다운로드하여 `images/` 폴더에 넣은 뒤, `index.html`에서 해당 이벤트의 `img:""`를 파일명으로 교체해주세요.
+
+| 저장할 파일명 | 이벤트 | 설명 | 다운로드 링크 |
+|--------------|--------|------|-------------|
+| `academy_plato.jpg` | 아카데미아 설립 | 라파엘로 아테네 학당 중 플라톤 부분 또는 아카데미아 상상도 | https://commons.wikimedia.org/wiki/File:Plato%27s_Academy_mosaic_from_Pompeii.jpg |
+| `edict_milan.jpg` | 밀라노 칙령 | 콘스탄티누스 대제 두상 또는 밀라노 칙령 관련 | https://commons.wikimedia.org/wiki/File:0_Flavius_Constantinus_-_Palazzo_dei_Conservatori_(2).JPG |
+| `birth_of_tragedy.jpg` | 비극의 탄생 | 니체 비극의 탄생 초판 표지 또는 디오니소스 관련 | https://commons.wikimedia.org/wiki/File:Nietzsche-Geburt_der_Trag%C3%B6die-1872.jpg |
+| `dream_interpretation.jpg` | 꿈의 해석 | 프로이트 꿈의 해석 초판 표지 | https://commons.wikimedia.org/wiki/File:Freud_-_Traumdeutung_1914.jpg |
