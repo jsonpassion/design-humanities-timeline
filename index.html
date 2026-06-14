@@ -643,8 +643,8 @@ function togMob(el){
     document.querySelectorAll('.ev.active').forEach(e=>e.classList.remove('active'));
     if(!was) el.classList.add('active');
   }
-  // Show si as popover (replaces side panel on mobile)
-  if(!was || allOpen){
+  // Show si as popover on mobile only
+  if(isMob() && (!was || allOpen)){
     const gi=parseInt(el.dataset.gi);
     const ev=V[gi];
     const era=E.find(e=>e.id===el.dataset.era);
