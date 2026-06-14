@@ -606,7 +606,7 @@ document.getElementById('sp').addEventListener('mouseenter',()=>{hoverActive=tru
 document.getElementById('sp').addEventListener('mouseleave',()=>{hoverActive=false;qHide()});
 
 // Auto side panel on scroll — shows nearest event card's si
-let lastScrollGi=-1;
+let lastScrollGi=-1,scrollDebounce=null;
 function scrollSP(){
   if(isMob()||hoverActive) return;
   const evCards=document.querySelectorAll('.ev[data-gi]');
@@ -623,11 +623,22 @@ function scrollSP(){
   if(!closest) return;
   const gi=parseInt(closest.dataset.gi);
   if(gi===lastScrollGi) return;
-  lastScrollGi=gi;
-  if(aEv && aEv!==closest && !allOpen) aEv.classList.remove('active');
-  closest.classList.add('active');
-  aEv=closest;
-  renderSP(closest);
+  // Hysteresis: if current card is still visible, require new card to be significantly closer
+  if(aEv && aEv!==closest){
+    const curRect=aEv.getBoundingClientRect();
+    const curDist=Math.abs(curRect.top+curRect.height/2-vpMid);
+    if(closestDist>curDist*0.7 && curRect.top<window.innerHeight && curRect.bottom>0) return;
+  }
+  // Debounce: wait 120ms before switching to prevent flicker
+  clearTimeout(scrollDebounce);
+  scrollDebounce=setTimeout(()=>{
+    if(parseInt(closest.dataset.gi)!==gi) return; // stale
+    lastScrollGi=gi;
+    if(aEv && aEv!==closest && !allOpen) aEv.classList.remove('active');
+    closest.classList.add('active');
+    aEv=closest;
+    renderSP(closest);
+  },120);
 }
 
 function sAutoSP(){
