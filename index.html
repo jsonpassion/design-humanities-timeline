@@ -580,23 +580,19 @@ function renderSP(el){
   return true;
 }
 
+// Hover: side panel only, never touches card active/unfold state
 function showSP(el){
   if(isMob()) return;
   hoverActive=true;
   clearTimeout(spT);
-  // Don't remove previous card's active — prevents layout shift that loses hover focus
-  aEv=el;
   renderSP(el);
 }
 
 function qHide(){
   hoverActive=false;
   spT=setTimeout(()=>{
-    if(hoverActive) return; // hover moved to another card
-    // Don't hide — let scroll take over smoothly
-    if(aEv && !allOpen){aEv.classList.remove('active');}
-    aEv=null;
-    // Trigger scroll-based SP for current viewport
+    if(hoverActive) return;
+    // Return to scroll-based side panel
     scrollSP();
   },300);
 }
@@ -604,7 +600,7 @@ function qHide(){
 document.getElementById('sp').addEventListener('mouseenter',()=>{hoverActive=true;clearTimeout(spT)});
 document.getElementById('sp').addEventListener('mouseleave',()=>{hoverActive=false;qHide()});
 
-// Auto side panel on scroll — shows nearest event card's si
+// Scroll: side panel only, never touches card active/unfold state
 let lastScrollGi=-1,scrollDebounce=null;
 function scrollSP(){
   if(isMob()||hoverActive) return;
@@ -619,23 +615,12 @@ function scrollSP(){
       closestDist=dist;closest=card;
     }
   });
-  if(!closest) return;
+  if(!closest){sp.classList.remove('vis');return;}
   const gi=parseInt(closest.dataset.gi);
   if(gi===lastScrollGi) return;
-  // Hysteresis: if current card is still visible, require new card to be significantly closer
-  if(aEv && aEv!==closest){
-    const curRect=aEv.getBoundingClientRect();
-    const curDist=Math.abs(curRect.top+curRect.height/2-vpMid);
-    if(closestDist>curDist*0.7 && curRect.top<window.innerHeight && curRect.bottom>0) return;
-  }
-  // Debounce: wait 120ms before switching to prevent flicker
   clearTimeout(scrollDebounce);
   scrollDebounce=setTimeout(()=>{
-    if(parseInt(closest.dataset.gi)!==gi) return; // stale
     lastScrollGi=gi;
-    if(aEv && aEv!==closest && !allOpen) aEv.classList.remove('active');
-    closest.classList.add('active');
-    aEv=closest;
     renderSP(closest);
   },120);
 }
