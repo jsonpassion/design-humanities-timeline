@@ -29,6 +29,20 @@ BC 6C        BC 1C       14C         18C        19C        19C말      20C초
 
 Single HTML file, vanilla JS/CSS. No dependencies.
 
+## Image Credits
+
+대부분의 이미지는 Wikimedia Commons에서 퍼블릭 도메인(PD-Art, PD-old)으로 확인된 자료입니다. 아래 이미지는 별도 라이선스가 적용됩니다.
+
+| Image | License | Note |
+|-------|---------|------|
+| Hagia Sophia interior | CC BY-SA | Modern photograph |
+| Bauhaus Dessau building | CC BY-SA | Modern photograph |
+| Sainte-Chapelle interior (bg) | CC BY-SA 4.0 | Modern photograph |
+| Guernica reproduction | CC BY-SA 4.0 | Tile mural reproduction, not original |
+| Portrait of Picasso | Juan Gris, PD | Original Picasso works under copyright |
+
+All other images: Public Domain (artist deceased 70+ years).
+
 ## Credits
 
 Jason J. Lee
