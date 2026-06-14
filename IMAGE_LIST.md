@@ -188,3 +188,23 @@
 - **하기아 소피아 내부 사진**: 현대 사진이므로 CC BY-SA 라이선스 (퍼블릭 도메인 아님). 출처 표기 필요.
 - **바우하우스 건물 사진**: CC BY-SA 또는 PD-user. 출처 표기 권장.
 - **마티스 작품** (`matisse.jpg`): 마티스(1869-1954) 사망 후 70년 경과 (2025년부터 PD 진입). 2026년 기준 퍼블릭 도메인.
+
+---
+
+## 누락 이미지 9개 — 수동 다운로드 링크
+
+아래 링크를 브라우저에서 열어 이미지를 저장한 뒤 `images/` 폴더에 해당 파일명으로 넣어주세요.
+
+| 저장할 파일명 | 설명 | 다운로드 링크 (브라우저에서 열기) |
+|--------------|------|-------------------------------|
+| `arts_crafts.jpg` | 윌리엄 모리스 벽지 디자인 | https://commons.wikimedia.org/wiki/File:William_Morris_design_for_Trellis_wallpaper_1862.jpg |
+| `bauhaus_manifesto.jpg` | 파이닝어 고딕 성당 판화 (바우하우스 선언문) | https://commons.wikimedia.org/wiki/File:Lyonel_Feininger_-_Cathedral_(for_Proclamation_of_the_Bauhaus)_1919.jpg |
+| `copernicus.jpg` | 코페르니쿠스 초상 | https://commons.wikimedia.org/wiki/File:Nikolaus_Kopernikus.jpg |
+| `four_elements.jpg` | 4원소 도해 | https://commons.wikimedia.org/wiki/File:Four_elements_representation.svg |
+| `french_revolution.jpg` | 민중을 이끄는 자유의 여신 (드라크루아) | `liberty_leading.jpg`와 같은 작품 — 복사해서 사용 |
+| `giotto.jpg` | 지오토 '애도' (Lamentation) | https://commons.wikimedia.org/wiki/File:Giotto_di_Bondone_-_No._36_Scenes_from_the_Life_of_Christ_-_20._Lamentation_(The_Mourning_of_Christ)_-_WGA09197.jpg |
+| `kandinsky_book.jpg` | 칸딘스키 점선면 관련 작품 | https://commons.wikimedia.org/wiki/File:Vassily_Kandinsky,_1923_-_Composition_8,_huile_sur_toile,_140_cm_x_201_cm,_Mus%C3%A9e_Guggenheim,_New_York.jpg |
+| `wagner_ring.jpg` | 바그너 니벨룽의 반지 무대 | https://commons.wikimedia.org/wiki/File:Ring34.jpg |
+| `zarathustra.jpg` | 니체 초상 (1882) | https://commons.wikimedia.org/wiki/File:Nietzsche1882.jpg |
+
+> Commons 페이지에서 이미지를 클릭 → 원본 해상도로 열기 → 우클릭 → 이미지를 다른 이름으로 저장 → 위 파일명으로 저장
