@@ -202,6 +202,20 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--tx);
   .th-grid{grid-template-columns:1fr}
 }
 
+/* TOGGLE ALL BUTTON */
+.toggle-all-btn{
+  position:fixed;top:70px;right:20px;z-index:300;
+  padding:0.5rem 1rem;
+  font-family:'Noto Sans KR',sans-serif;font-size:0.72rem;font-weight:500;
+  color:var(--tx);letter-spacing:0.06em;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,0.12);border-radius:100px;
+  cursor:pointer;transition:all 0.3s;
+}
+.toggle-all-btn:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.2)}
+.toggle-all-btn.on{background:rgba(196,176,122,0.15);border-color:rgba(196,176,122,0.3);color:var(--tw)}
+
 .fi{opacity:0;transform:translateY(14px);transition:opacity 0.5s,transform 0.5s}
 .fi.v{opacity:1;transform:translateY(0)}
 </style>
@@ -242,6 +256,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--tx);
     <strong>디자인은 그 균형점에 선다.</strong>
   </p>
 </section>
+
+<button class="toggle-all-btn" id="toggleAllBtn" onclick="toggleAll()">모두 펼치기</button>
 
 <nav class="era-nav"><div class="era-nav-inner" id="navIn"></div></nav>
 
@@ -429,38 +445,96 @@ const V=[
   {yr:"1937",t:"게르니카",d:"피카소 — 한 장의 그림이 전쟁을 고발하다",era:"modern-design",tp:"work",img:"guernica.jpg",dt:"스페인 내전 중 나치가 게르니카 마을을 폭격했다. 피카소는 3.5m x 7.8m 캔버스에 분노를 쏟아부었다.",dl:"디자인과 예술이 사회적 메시지를 전달하는 가장 강력한 매체임을 증명"}
 ];
 
+// Global event index for lookup
+let evIndex={};
+function buildIndex(){V.forEach((ev,gi)=>{evIndex[gi]=ev})}
+
 function init(){
+  buildIndex();
   document.getElementById('navIn').innerHTML=E.map(e=>`<div class="era-tab" data-e="${e.id}" style="--tc:${e.c}">${e.name}</div>`).join('');
   const tl={person:'인물',work:'작품',event:'사건',concept:'개념'};
+  let gi=0;
   document.getElementById('tlCol').innerHTML=E.map(era=>{
     const evs=V.filter(v=>v.era===era.id),ps=P[era.id]||[];
-    return `<section class="era-section" id="${era.id}">
+    const html=`<section class="era-section" id="${era.id}">
       <div class="era-header fi"><div class="period">${era.period}</div><h2 style="color:${era.c}">${era.name}</h2><p class="desc">${era.desc}</p>
       <div class="era-keywords">${era.kw.map(k=>`<span class="era-kw" style="border-color:${era.c}25;color:${era.c}">${k}</span>`).join('')}</div></div>
       ${ps.length?`<div class="person-row fi">${ps.map(p=>`<div class="p-card glass"><div class="p-card-img">${p.img?`<img src="images/${p.img}" alt="${p.n}" onerror="this.parentElement.innerHTML='<div class=phd>&#9679;</div>'">`:'<div class="phd">&#9679;</div>'}</div><div class="p-card-body"><div class="p-card-name">${p.n}</div><div class="p-card-role">${p.r}</div></div></div>`).join('')}</div>`:''}
-      <div class="tl-track" style="--ec:${era.c}">${evs.map((ev,i)=>`<div class="ev glass fi" data-i="${era.id}-${i}" onmouseenter="showSP(this)" onmouseleave="qHide(this)" onclick="togMob(this)">
+      <div class="tl-track" style="--ec:${era.c}">${evs.map(ev=>{
+        const idx=V.indexOf(ev);
+        return `<div class="ev glass fi" data-gi="${idx}" data-era="${era.id}" onmouseenter="showSP(this)" onmouseleave="qHide()" onclick="togMob(this)">
         <div class="ev-head"><span class="ev-year">${ev.yr}</span><span class="ev-title">${ev.t}<span class="ev-badge ${ev.tp}">${tl[ev.tp]}</span></span></div>
         <div class="ev-desc">${ev.d}</div>
         <div class="ev-mob"><div class="ev-mob-inner"><div class="ev-mob-img">${ev.img?`<img src="images/${ev.img}" alt="${ev.t}" onerror="this.parentElement.innerHTML='<div class=ph>${ev.t}</div>'">`:`<div class="ph">${ev.t}</div>`}</div><div class="ev-mob-text">${ev.dt||''}</div>${ev.dl?`<div class="ev-mob-dl"><div style="font-size:0.65rem;color:var(--tw);letter-spacing:0.1em;margin-bottom:0.2rem">디자인과의 연결</div>${ev.dl}</div>`:''}</div></div>
-      </div>`).join('')}</div>
+      </div>`}).join('')}</div>
       ${era.q?`<div class="quote-block fi">${era.q}<span class="src">${era.qs}</span></div>`:''}
     </section>`;
+    return html;
   }).join('');
   sNav();sFI();
 }
 
-let spT=null,aEv=null;const sp=document.getElementById('spI'),isMob=()=>window.innerWidth<=1024;
-function showSP(el){if(isMob())return;clearTimeout(spT);if(aEv)aEv.classList.remove('active');el.classList.add('active');aEv=el;
-  const[eId,i]=el.dataset.i.split('-'),evs=V.filter(v=>v.era===eId),ev=evs[+i],era=E.find(e=>e.id===eId);if(!ev)return;
-  sp.innerHTML=`<div class="sp-era" style="color:${era.c}">${era.name}</div><div class="sp-year" style="color:${era.c}">${ev.yr}</div><div class="sp-title">${ev.t}</div>
+// Side panel — only supplementary info (no duplication of card content)
+let spT=null,aEv=null;
+const sp=document.getElementById('spI');
+const isMob=()=>window.innerWidth<=1024;
+
+function showSP(el){
+  if(isMob()) return;
+  clearTimeout(spT);
+  if(aEv) aEv.classList.remove('active');
+  el.classList.add('active');
+  aEv=el;
+  const gi=parseInt(el.dataset.gi);
+  const ev=V[gi];
+  const era=E.find(e=>e.id===el.dataset.era);
+  if(!ev||!era) return;
+  // Only show supplementary detail + design link (not title/desc which is already on card)
+  const hasExtra=(ev.dt&&ev.dt.length>0)||(ev.dl&&ev.dl.length>0);
+  if(!hasExtra){sp.classList.remove('vis');return;}
+  sp.innerHTML=`
+    <div class="sp-era" style="color:${era.c}">${era.name}</div>
+    <div class="sp-title">${ev.t}</div>
     <div class="sp-image">${ev.img?`<img src="images/${ev.img}" alt="${ev.t}" onerror="this.parentElement.innerHTML='<div class=ph>${ev.t}</div>'">`:`<div class="ph">${ev.t}</div>`}</div>
-    <div class="sp-body">${ev.dt||''}</div>${ev.dl?`<div class="sp-dl"><div class="lb">디자인과의 연결</div>${ev.dl}</div>`:''}`;
+    ${ev.dt?`<div class="sp-body">${ev.dt}</div>`:''}
+    ${ev.dl?`<div class="sp-dl"><div class="lb">디자인과의 연결</div>${ev.dl}</div>`:''}
+  `;
   sp.classList.add('vis');
 }
-function qHide(){spT=setTimeout(()=>{sp.classList.remove('vis');if(aEv){aEv.classList.remove('active');aEv=null}},200)}
+
+function qHide(){
+  spT=setTimeout(()=>{
+    sp.classList.remove('vis');
+    if(aEv){aEv.classList.remove('active');aEv=null;}
+  },250);
+}
+
 document.getElementById('sp').addEventListener('mouseenter',()=>clearTimeout(spT));
 document.getElementById('sp').addEventListener('mouseleave',qHide);
-function togMob(el){if(!isMob())return;const w=el.classList.contains('active');document.querySelectorAll('.ev.active').forEach(e=>e.classList.remove('active'));if(!w)el.classList.add('active')}
+
+// Mobile: tap to expand inline
+function togMob(el){
+  if(!isMob()) return;
+  const was=el.classList.contains('active');
+  document.querySelectorAll('.ev.active').forEach(e=>e.classList.remove('active'));
+  if(!was) el.classList.add('active');
+}
+
+// Toggle all: unfold every event
+let allOpen=false;
+function toggleAll(){
+  allOpen=!allOpen;
+  const btn=document.getElementById('toggleAllBtn');
+  if(allOpen){
+    document.querySelectorAll('.ev').forEach(e=>e.classList.add('active'));
+    btn.textContent='모두 접기';
+    btn.classList.add('on');
+  } else {
+    document.querySelectorAll('.ev').forEach(e=>e.classList.remove('active'));
+    btn.textContent='모두 펼치기';
+    btn.classList.remove('on');
+  }
+}
 function sNav(){
   const ts=document.querySelectorAll('.era-tab');
   const ss=document.querySelectorAll('.era-section');
