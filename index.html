@@ -229,19 +229,25 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--tx);
   .th-grid{grid-template-columns:1fr}
 }
 
-/* TOGGLE ALL BUTTON */
-.toggle-all-btn{
-  position:fixed;top:70px;right:20px;z-index:300;
-  padding:0.5rem 1rem;
+/* FLOATING CONTROLS */
+.float-controls{
+  position:fixed;bottom:24px;right:24px;z-index:300;
+  display:flex;flex-direction:column;gap:0.5rem;align-items:flex-end;
+}
+.float-btn{
+  padding:0.55rem 1rem;
   font-family:'Noto Sans KR',sans-serif;font-size:0.72rem;font-weight:500;
   color:var(--tx);letter-spacing:0.06em;
-  background:rgba(0,0,0,0.6);
-  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  border:1px solid rgba(255,255,255,0.12);border-radius:100px;
+  background:rgba(0,0,0,0.65);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.14);border-radius:100px;
   cursor:pointer;transition:all 0.3s;
+  box-shadow:0 4px 20px rgba(0,0,0,0.4);
+  white-space:nowrap;
 }
-.toggle-all-btn:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.2)}
-.toggle-all-btn.on{background:rgba(196,176,122,0.15);border-color:rgba(196,176,122,0.3);color:var(--tw)}
+.float-btn:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.22);transform:translateY(-1px);box-shadow:0 6px 24px rgba(0,0,0,0.5)}
+.float-btn.on{background:rgba(196,176,122,0.18);border-color:rgba(196,176,122,0.35);color:var(--tw)}
+.float-btn .icon{margin-right:0.3rem;font-size:0.8rem}
 
 .fi{opacity:0;transform:translateY(14px);transition:opacity 0.5s,transform 0.5s}
 .fi.v{opacity:1;transform:translateY(0)}
@@ -284,7 +290,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--tx);
   </p>
 </section>
 
-<button class="toggle-all-btn" id="toggleAllBtn" onclick="toggleAll()">모두 펼치기</button>
+<div class="float-controls">
+  <button class="float-btn" id="toggleAllBtn" onclick="toggleAll()"><span class="icon">&#9776;</span>모두 펼치기</button>
+  <button class="float-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})"><span class="icon">&#8593;</span>맨 위로</button>
+</div>
 
 <nav class="era-nav"><div class="era-nav-inner" id="navIn"></div></nav>
 
@@ -570,11 +579,11 @@ function toggleAll(){
   const btn=document.getElementById('toggleAllBtn');
   if(allOpen){
     document.querySelectorAll('.ev').forEach(e=>e.classList.add('active'));
-    btn.textContent='모두 접기';
+    btn.innerHTML='<span class="icon">&#9776;</span>모두 접기';
     btn.classList.add('on');
   } else {
     document.querySelectorAll('.ev').forEach(e=>e.classList.remove('active'));
-    btn.textContent='모두 펼치기';
+    btn.innerHTML='<span class="icon">&#9776;</span>모두 펼치기';
     btn.classList.remove('on');
   }
 }
