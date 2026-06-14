@@ -214,6 +214,35 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--tx);
 .footer .credits{margin-top:1rem;font-size:0.62rem;color:rgba(255,255,255,0.2);letter-spacing:0.05em;line-height:1.8}
 
 /* RESPONSIVE */
+/* MOBILE POPOVER */
+.mob-popover{
+  display:none;position:fixed;inset:0;z-index:400;
+  align-items:flex-end;justify-content:center;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+}
+.mob-popover.show{display:flex}
+.mob-popover-card{
+  width:100%;max-width:480px;max-height:75vh;overflow-y:auto;
+  margin:0 0.8rem 0.8rem;padding:1.5rem;
+  background:rgba(10,10,14,0.92);
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:var(--r);
+  box-shadow:0 -8px 40px rgba(0,0,0,0.5);
+}
+.mob-popover-card .mp-era{font-size:0.7rem;letter-spacing:0.12em;margin-bottom:0.3rem}
+.mob-popover-card .mp-title{font-family:'Noto Serif KR',serif;font-size:1.1rem;font-weight:700;margin-bottom:0.8rem}
+.mob-popover-card .mp-img{width:100%;border-radius:var(--rs);overflow:hidden;margin-bottom:0.8rem;border:1px solid var(--gb)}
+.mob-popover-card .mp-img img{width:100%;height:auto;display:block}
+.mob-popover-card .mp-body{font-size:0.85rem;line-height:1.9;color:var(--td)}
+.mob-popover-card .mp-close{
+  position:absolute;top:0.8rem;right:1rem;
+  font-size:1.2rem;color:var(--td);cursor:pointer;
+  width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;
+  border-radius:50%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
+}
+
 @media(max-width:1024px){
   .side-panel{display:none}
   .main-layout{display:block}
@@ -289,6 +318,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--tx);
     <strong>디자인은 그 균형점에 선다.</strong>
   </p>
 </section>
+
+<div class="mob-popover" id="mobPop" onclick="closePop(event)">
+  <div class="mob-popover-card" id="mobPopCard"><span class="mp-close" onclick="closePop()">&times;</span></div>
+</div>
 
 <div class="float-controls">
   <button class="float-btn" id="toggleAllBtn" onclick="toggleAll()"><span class="icon">&#9776;</span>모두 펼치기</button>
@@ -564,12 +597,39 @@ function qHide(){
 document.getElementById('sp').addEventListener('mouseenter',()=>clearTimeout(spT));
 document.getElementById('sp').addEventListener('mouseleave',qHide);
 
-// Mobile: tap to expand inline
+// Mobile: tap to expand inline + show popover for si
 function togMob(el){
   if(!isMob()) return;
   const was=el.classList.contains('active');
-  document.querySelectorAll('.ev.active').forEach(e=>e.classList.remove('active'));
-  if(!was) el.classList.add('active');
+  if(allOpen){
+    // allOpen 상태: 개별 토글만, 전체 닫지 않음
+    el.classList.toggle('active');
+  } else {
+    document.querySelectorAll('.ev.active').forEach(e=>e.classList.remove('active'));
+    if(!was) el.classList.add('active');
+  }
+  // Show si as popover (replaces side panel on mobile)
+  if(!was || allOpen){
+    const gi=parseInt(el.dataset.gi);
+    const ev=V[gi];
+    const era=E.find(e=>e.id===el.dataset.era);
+    if(ev && ev.si) showPop(ev, era);
+  }
+}
+
+function showPop(ev, era){
+  const card=document.getElementById('mobPopCard');
+  card.innerHTML=`<span class="mp-close" onclick="closePop()">&times;</span>
+    <div class="mp-era" style="color:${era.c}">${era.name}</div>
+    <div class="mp-title">${ev.t}</div>
+    ${ev.img?`<div class="mp-img"><img src="images/${ev.img}" alt="${ev.t}" onerror="this.parentElement.style.display='none'"></div>`:''}
+    <div class="mp-body">${ev.si}</div>`;
+  document.getElementById('mobPop').classList.add('show');
+}
+
+function closePop(e){
+  if(e && e.target!==document.getElementById('mobPop') && !e.target.classList.contains('mp-close')) return;
+  document.getElementById('mobPop').classList.remove('show');
 }
 
 // Toggle all: unfold every event
