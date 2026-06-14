@@ -584,8 +584,7 @@ function showSP(el){
   if(isMob()) return;
   hoverActive=true;
   clearTimeout(spT);
-  if(aEv && aEv!==el && !allOpen) aEv.classList.remove('active');
-  el.classList.add('active');
+  // Don't remove previous card's active — prevents layout shift that loses hover focus
   aEv=el;
   renderSP(el);
 }
