@@ -556,27 +556,21 @@ function init(){
     </section>`;
     return html;
   }).join('');
-  sNav();sFI();
+  sNav();sFI();sAutoSP();
 }
 
 // Side panel — only supplementary info (no duplication of card content)
-let spT=null,aEv=null;
+let spT=null,aEv=null,hoverActive=false;
 const sp=document.getElementById('spI');
 const isMob=()=>window.innerWidth<=1024;
 
-function showSP(el){
-  if(isMob()) return;
-  clearTimeout(spT);
-  if(aEv && !allOpen) aEv.classList.remove('active');
-  el.classList.add('active');
-  aEv=el;
+function renderSP(el){
   const gi=parseInt(el.dataset.gi);
   const ev=V[gi];
   const era=E.find(e=>e.id===el.dataset.era);
-  if(!ev||!era) return;
-  // Side panel shows ONLY si (side insight) — never dt/dl which are in the unfold
+  if(!ev||!era) return false;
   const hasSI=ev.si&&ev.si.length>0;
-  if(!hasSI){sp.classList.remove('vis');return;}
+  if(!hasSI){sp.classList.remove('vis');return false;}
   sp.innerHTML=`
     <div class="sp-era" style="color:${era.c}">${era.name}</div>
     <div class="sp-title">${ev.t}</div>
@@ -584,18 +578,67 @@ function showSP(el){
     <div class="sp-body">${ev.si}</div>
   `;
   sp.classList.add('vis');
+  return true;
+}
+
+function showSP(el){
+  if(isMob()) return;
+  hoverActive=true;
+  clearTimeout(spT);
+  if(aEv && aEv!==el && !allOpen) aEv.classList.remove('active');
+  el.classList.add('active');
+  aEv=el;
+  renderSP(el);
 }
 
 function qHide(){
+  hoverActive=false;
   spT=setTimeout(()=>{
-    sp.classList.remove('vis');
+    if(hoverActive) return; // hover moved to another card
+    // Don't hide — let scroll take over smoothly
     if(aEv && !allOpen){aEv.classList.remove('active');}
     aEv=null;
-  },250);
+    // Trigger scroll-based SP for current viewport
+    scrollSP();
+  },300);
 }
 
-document.getElementById('sp').addEventListener('mouseenter',()=>clearTimeout(spT));
-document.getElementById('sp').addEventListener('mouseleave',qHide);
+document.getElementById('sp').addEventListener('mouseenter',()=>{hoverActive=true;clearTimeout(spT)});
+document.getElementById('sp').addEventListener('mouseleave',()=>{hoverActive=false;qHide()});
+
+// Auto side panel on scroll — shows nearest event card's si
+let lastScrollGi=-1;
+function scrollSP(){
+  if(isMob()||hoverActive) return;
+  const evCards=document.querySelectorAll('.ev[data-gi]');
+  const vpMid=window.innerHeight*0.45;
+  let closest=null,closestDist=Infinity;
+  evCards.forEach(card=>{
+    const rect=card.getBoundingClientRect();
+    const cardMid=rect.top+rect.height/2;
+    const dist=Math.abs(cardMid-vpMid);
+    if(dist<closestDist && rect.top<window.innerHeight && rect.bottom>0){
+      closestDist=dist;closest=card;
+    }
+  });
+  if(!closest) return;
+  const gi=parseInt(closest.dataset.gi);
+  if(gi===lastScrollGi) return;
+  lastScrollGi=gi;
+  if(aEv && aEv!==closest && !allOpen) aEv.classList.remove('active');
+  closest.classList.add('active');
+  aEv=closest;
+  renderSP(closest);
+}
+
+function sAutoSP(){
+  let ticking=false;
+  window.addEventListener('scroll',()=>{
+    if(ticking) return;
+    ticking=true;
+    requestAnimationFrame(()=>{scrollSP();ticking=false});
+  },{passive:true});
+}
 
 // Mobile: tap to expand inline + show popover for si
 function togMob(el){
