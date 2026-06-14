@@ -179,6 +179,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--tx);
 .ev-mob-img{width:100%;max-height:280px;border-radius:var(--rs);overflow:hidden;margin-bottom:0.8rem;background:rgba(255,255,255,0.02);border:1px solid var(--gb);display:flex;align-items:center;justify-content:center}
 .ev-mob-img img{width:100%;height:auto;display:block;min-height:100%;object-fit:cover;object-position:center center}
 .ev-mob-img .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:var(--td);opacity:0.25}
+
+/* Image copyright overlay */
+.img-credit{position:absolute;bottom:2px;right:4px;font-size:0.45rem;color:rgba(255,255,255,0.35);letter-spacing:0.02em;pointer-events:none;text-shadow:0 1px 2px rgba(0,0,0,0.8)}
+.ev-mob-img,.sp-image,.p-card-img{position:relative}
 .ev-mob-text{font-size:0.82rem;line-height:1.9;color:var(--td)}
 .ev-mob-dl{margin-top:0.6rem;padding:0.6rem 0.8rem;background:rgba(196,176,122,0.05);border-left:2px solid var(--tw);border-radius:0 6px 6px 0;font-size:0.78rem;color:var(--td);line-height:1.7}
 
@@ -472,6 +476,22 @@ const V=[
 let evIndex={};
 function buildIndex(){V.forEach((ev,gi)=>{evIndex[gi]=ev})}
 
+// Image credits for copyright-required images
+const CREDITS={
+  'picasso_cubism.jpg':'Juan Gris, PD',
+  'guernica.jpg':'CC BY-SA 4.0',
+  'hagia_sophia.jpg':'CC BY-SA',
+  'bauhaus.jpg':'CC BY-SA',
+  'bg_medieval.jpg':'CC BY-SA 4.0',
+  'bg_modern.jpg':'CC BY-SA',
+  'bg_nietzsche.jpg':'Edvard Munch, PD'
+};
+function creditTag(img){
+  if(!img) return '';
+  const c=CREDITS[img];
+  return c?`<span class="img-credit">${c}</span>`:'';
+}
+
 function init(){
   buildIndex();
   document.getElementById('navIn').innerHTML=E.map(e=>`<div class="era-tab" data-e="${e.id}" style="--tc:${e.c}">${e.name}</div>`).join('');
@@ -488,7 +508,7 @@ function init(){
         return `<div class="ev glass fi" data-gi="${idx}" data-era="${era.id}" onmouseenter="showSP(this)" onmouseleave="qHide()" onclick="togMob(this)">
         <div class="ev-head"><span class="ev-year">${ev.yr}</span><span class="ev-title">${ev.t}<span class="ev-badge ${ev.tp}">${tl[ev.tp]}</span></span></div>
         <div class="ev-desc">${ev.d}</div>
-        <div class="ev-mob"><div class="ev-mob-inner"><div class="ev-mob-img">${ev.img?`<img src="images/${ev.img}" alt="${ev.t}" onerror="this.parentElement.innerHTML='<div class=ph>${ev.t}</div>'">`:`<div class="ph">${ev.t}</div>`}</div><div class="ev-mob-text">${ev.dt||''}</div>${ev.dl?`<div class="ev-mob-dl"><div style="font-size:0.65rem;color:var(--tw);letter-spacing:0.1em;margin-bottom:0.2rem">디자인과의 연결</div>${ev.dl}</div>`:''}</div></div>
+        <div class="ev-mob"><div class="ev-mob-inner"><div class="ev-mob-img">${ev.img?`<img src="images/${ev.img}" alt="${ev.t}" onerror="this.parentElement.innerHTML='<div class=ph>${ev.t}</div>'">${creditTag(ev.img)}`:`<div class="ph">${ev.t}</div>`}</div><div class="ev-mob-text">${ev.dt||''}</div>${ev.dl?`<div class="ev-mob-dl"><div style="font-size:0.65rem;color:var(--tw);letter-spacing:0.1em;margin-bottom:0.2rem">디자인과의 연결</div>${ev.dl}</div>`:''}</div></div>
       </div>`}).join('')}</div>
       ${era.q?`<div class="quote-block fi">${era.q}<span class="src">${era.qs}</span></div>`:''}
     </section>`;
@@ -518,7 +538,7 @@ function showSP(el){
   sp.innerHTML=`
     <div class="sp-era" style="color:${era.c}">${era.name}</div>
     <div class="sp-title">${ev.t}</div>
-    <div class="sp-image">${ev.img?`<img src="images/${ev.img}" alt="${ev.t}" onerror="this.parentElement.innerHTML='<div class=ph>${ev.t}</div>'">`:`<div class="ph">${ev.t}</div>`}</div>
+    <div class="sp-image">${ev.img?`<img src="images/${ev.img}" alt="${ev.t}" onerror="this.parentElement.innerHTML='<div class=ph>${ev.t}</div>'">${creditTag(ev.img)}`:`<div class="ph">${ev.t}</div>`}</div>
     <div class="sp-body">${ev.si}</div>
   `;
   sp.classList.add('vis');
