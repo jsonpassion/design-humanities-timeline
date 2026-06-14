@@ -179,7 +179,9 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--tx);
 .ev.active .ev-mob{max-height:600px;opacity:1}
 .ev-mob-inner{padding-top:0.8rem;margin-top:0.6rem;border-top:1px solid var(--gb)}
 .ev-mob-img{width:100%;height:140px;border-radius:var(--rs);overflow:hidden;margin-bottom:0.8rem;background:rgba(255,255,255,0.02);border:1px solid var(--gb)}
-.ev-mob-img img{width:100%;height:100%;object-fit:cover;object-position:center center}
+.ev-mob-img img{width:100%;height:140%;object-fit:cover;object-position:center top;animation:none}
+.ev.active .ev-mob-img img{animation:imgPan 8s ease-in-out infinite alternate}
+@keyframes imgPan{0%{object-position:center top}100%{object-position:center bottom}}
 .ev-mob-img .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:var(--td);opacity:0.25}
 
 /* Image copyright overlay */
