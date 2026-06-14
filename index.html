@@ -636,10 +636,8 @@ function sAutoSP(){
 
 // Mobile: tap to expand inline + show popover for si
 function togMob(el){
-  if(!isMob()) return;
   const was=el.classList.contains('active');
   if(allOpen){
-    // allOpen 상태: 개별 토글만, 전체 닫지 않음
     el.classList.toggle('active');
   } else {
     document.querySelectorAll('.ev.active').forEach(e=>e.classList.remove('active'));
