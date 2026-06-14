@@ -161,6 +161,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--tx);
 .ev{position:relative;margin-bottom:0.8rem;padding:1rem 1.3rem;cursor:pointer;transition:all 0.3s cubic-bezier(0.16,1,0.3,1)}
 .ev::before{content:'';position:absolute;left:-28px;top:50%;transform:translateY(-50%);width:7px;height:7px;border-radius:50%;background:var(--ec);box-shadow:0 0 0 2px var(--bg),0 0 0 3px var(--ec);transition:all 0.3s;z-index:2}
 .ev:hover,.ev.active{background:rgba(0,0,0,0.45);border-color:rgba(255,255,255,0.16);transform:translateX(3px);box-shadow:0 8px 32px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.06)}
+.ev.sp-linked{border-color:var(--ec);box-shadow:0 0 18px color-mix(in srgb,var(--ec) 25%,transparent),inset 0 1px 0 rgba(255,255,255,0.06)}
 .ev:hover::before,.ev.active::before{transform:translateY(-50%) scale(1.4)}
 .ev-head{display:flex;align-items:baseline;gap:0.7rem;margin-bottom:0.15rem}
 .ev-year{font-family:'Noto Serif KR',serif;font-size:0.78rem;color:var(--ec);letter-spacing:0.04em;flex-shrink:0}
@@ -563,7 +564,11 @@ let spT=null,aEv=null,hoverActive=false;
 const sp=document.getElementById('spI');
 const isMob=()=>window.innerWidth<=1024;
 
+let spHighlight=null;
 function renderSP(el){
+  if(spHighlight && spHighlight!==el) spHighlight.classList.remove('sp-linked');
+  el.classList.add('sp-linked');
+  spHighlight=el;
   const gi=parseInt(el.dataset.gi);
   const ev=V[gi];
   const era=E.find(e=>e.id===el.dataset.era);
