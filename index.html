@@ -316,25 +316,25 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--tx);
 const E=[
   {id:"ancient-greece",name:"고대 그리스",period:"BC 6C ~ BC 4C",c:"#5B9FE6",rgb:"91,159,230",
    desc:"철학이 시작된 곳. 세계의 근원을 묻고, 인간으로 시선을 돌리다",kw:["아르케","이데아","점선면","미메시스"],
-   q:""위대한 예술 작품의 이면에는 인문학적 토대가 있다. 기법이 아니라 철학이 작품의 가치를 결정한다."",qs:"근원에 대한 물음"},
+   q:"“위대한 예술 작품의 이면에는 인문학적 토대가 있다. 기법이 아니라 철학이 작품의 가치를 결정한다.”",qs:"근원에 대한 물음"},
   {id:"rome-medieval",name:"로마 / 중세",period:"BC 1C ~ 15C",c:"#BFA04F",rgb:"191,160,79",
    desc:"로마는 그리스의 이상을 시스템으로 바꿨고, 중세는 그 위에 신의 이름을 올렸다",kw:["Humanitas","오캄의 면도날","고딕","길드"],
-   q:""중세는 암흑기가 아니다. 장인정신, 길드, 건축의 이상 — 현대 디자인의 정신적 뿌리가 여기 있다."",qs:"중세 예술과 건축"},
+   q:"“중세는 암흑기가 아니다. 장인정신, 길드, 건축의 이상 — 현대 디자인의 정신적 뿌리가 여기 있다.”",qs:"중세 예술과 건축"},
   {id:"renaissance",name:"르네상스 / 과학혁명",period:"14C ~ 17C",c:"#E6C84A",rgb:"230,200,74",
    desc:"인간이 되돌아왔다. 눈으로 보고, 손으로 그리고, 이성으로 증명하기 시작한 시대",kw:["원근법","인쇄술","지동설","데카르트 좌표"],
-   q:""다빈치는 화가이자 과학자이자 발명가였다. 디자인 사고(Design Thinking)의 원형은 르네상스적 인간에 있다."",qs:"르네상스와 과학혁명"},
+   q:"“다빈치는 화가이자 과학자이자 발명가였다. 디자인 사고(Design Thinking)의 원형은 르네상스적 인간에 있다.”",qs:"르네상스와 과학혁명"},
   {id:"romanticism",name:"낭만주의",period:"18C말 ~ 19C초",c:"#B070D4",rgb:"176,112,212",
    desc:"이성이 지배한 세계에 감성이 반기를 들다",kw:["상상력","블레이크","감성","혁명"],
-   q:""'과학적 사고는 마음의 수갑이다.' 기술의 시대일수록 인간적 감성을 잃지 않아야 한다."",qs:"윌리엄 블레이크"},
+   q:"“'과학적 사고는 마음의 수갑이다.' 기술의 시대일수록 인간적 감성을 잃지 않아야 한다.”",qs:"윌리엄 블레이크"},
   {id:"industrial",name:"산업혁명 / 19세기",period:"19C",c:"#D45B5B",rgb:"212,91,91",
    desc:"기계가 손을 대신했다. 대량생산 앞에서 아름다움은 위기에 처한다",kw:["증기기관","수정궁","동서양 융합","예술공예운동"],
-   q:""AI 시대에도 인간의 '손맛'과 감성이 디자인의 진정한 경쟁력이다."",qs:"산업혁명과 디자인"},
+   q:"“AI 시대에도 인간의 '손맛'과 감성이 디자인의 진정한 경쟁력이다.”",qs:"산업혁명과 디자인"},
   {id:"nietzsche-freud",name:"니체 / 프로이트",period:"19C말",c:"#6B9FC4",rgb:"107,159,196",
    desc:"신은 죽었고, 의식 아래 무의식이 발견되다",kw:["초인","무의식","총체예술","페르소나"],
-   q:""바그너의 총체 예술은 현대 경험 디자인의 원형이고, 칼 융의 페르소나는 UX 디자인의 사용자 연구로 이어진다."",qs:"니체, 바그너, 프로이트"},
+   q:"“바그너의 총체 예술은 현대 경험 디자인의 원형이고, 칼 융의 페르소나는 UX 디자인의 사용자 연구로 이어진다.”",qs:"니체, 바그너, 프로이트"},
   {id:"modern-design",name:"모던디자인의 탄생",period:"19C말 ~ 20C초",c:"#E8944A",rgb:"232,148,74",
    desc:"곡선에서 직선으로, 장식에서 본질로. 2,500년 인문학이 디자인 교육으로 종합되다",kw:["아르누보","5대 사조","3대 운동","바우하우스"],
-   q:""모던디자인 3대 운동은 양식이 아니라 사회를 바꾸려는 철학적 운동이었다."",qs:"세기의 전환"}
+   q:"“모던디자인 3대 운동은 양식이 아니라 사회를 바꾸려는 철학적 운동이었다.”",qs:"세기의 전환"}
 ];
 
 const P={
@@ -461,9 +461,24 @@ function qHide(){spT=setTimeout(()=>{sp.classList.remove('vis');if(aEv){aEv.clas
 document.getElementById('sp').addEventListener('mouseenter',()=>clearTimeout(spT));
 document.getElementById('sp').addEventListener('mouseleave',qHide);
 function togMob(el){if(!isMob())return;const w=el.classList.contains('active');document.querySelectorAll('.ev.active').forEach(e=>e.classList.remove('active'));if(!w)el.classList.add('active')}
-function sNav(){const ts=document.querySelectorAll('.era-tab'),ss=document.querySelectorAll('.era-section');
-  ts.forEach(t=>t.addEventListener('click',()=>{const el=document.getElementById(t.dataset.e);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})}));
-  new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){ts.forEach(t=>t.classList.remove('active'));const a=document.querySelector(`[data-e="${e.target.id}"]`);if(a)a.classList.add('active')}})},{threshold:0.15,rootMargin:'-60px 0px 0px 0px'}).observe&&ss.forEach(s=>new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){ts.forEach(t=>t.classList.remove('active'));const a=document.querySelector(`[data-e="${e.target.id}"]`);if(a)a.classList.add('active')}})},{threshold:0.15,rootMargin:'-60px 0px 0px 0px'}).observe(s))}
+function sNav(){
+  const ts=document.querySelectorAll('.era-tab');
+  const ss=document.querySelectorAll('.era-section');
+  ts.forEach(t=>t.addEventListener('click',()=>{
+    const el=document.getElementById(t.dataset.e);
+    if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+  }));
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        ts.forEach(t=>t.classList.remove('active'));
+        const a=document.querySelector('[data-e="'+entry.target.id+'"]');
+        if(a) a.classList.add('active');
+      }
+    });
+  },{threshold:0.15,rootMargin:'-60px 0px 0px 0px'});
+  ss.forEach(s=>obs.observe(s));
+}
 function sFI(){const o=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')})},{threshold:0.06});document.querySelectorAll('.fi').forEach(el=>o.observe(el))}
 document.addEventListener('DOMContentLoaded',init);
 </script>
