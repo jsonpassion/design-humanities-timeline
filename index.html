@@ -328,7 +328,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--tx);
 </div>
 
 <div class="float-controls">
-  <button class="float-btn" id="toggleAllBtn" onclick="toggleAll()"><span class="icon">&#9776;</span>모두 펼치기</button>
+  <button class="float-btn on" id="toggleAllBtn" onclick="toggleAll()"><span class="icon">&#9776;</span>모두 접기</button>
   <button class="float-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})"><span class="icon">&#8593;</span>맨 위로</button>
 </div>
 
@@ -560,6 +560,8 @@ function init(){
     return html;
   }).join('');
   sNav();sFI();sAutoSP();
+  // 기본 모두 펼침
+  document.querySelectorAll('.ev').forEach(e=>e.classList.add('active'));
 }
 
 // Side panel — only supplementary info (no duplication of card content)
@@ -676,7 +678,7 @@ function closePop(e){
 }
 
 // Toggle all: unfold every event
-let allOpen=false;
+let allOpen=true;
 function toggleAll(){
   allOpen=!allOpen;
   const btn=document.getElementById('toggleAllBtn');
