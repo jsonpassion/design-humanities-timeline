@@ -88,14 +88,15 @@
 | `picasso_cubism.jpg` | 피카소 입체파 작품 (아비뇽의 처녀들 등) | 1907~ |
 | `futurism.jpg` | 미래파 선언문 또는 실험적 타이포그래피 | 마리네티, 1909 |
 | `bauhaus.jpg` | 바우하우스 데사우 건물 | 1925 |
+| `mondrian_composition.jpg` | Composition II in Red, Blue, and Yellow | 몬드리안, 1930 |
 | `guernica.jpg` | 게르니카 | 피카소, 1937 |
 
 ---
 
-## 총 이미지 수: 64개
+## 총 이미지 수: 65개
 - 배경: 7개
 - 인물: 29개
-- 작품/사건: 28개
+- 작품/사건: 29개
 
 ## 참고
 - french_revolution.jpg 와 liberty_leading.jpg 는 같은 작품(드라크루아)이므로 하나만 준비해도 됨
